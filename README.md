@@ -48,3 +48,24 @@ To run this project, you will need to create a `.env` file and add the following
 1. Clone the repo.
 2. Run `npm install`.
 3. Start the server using `npm run dev` (Nodemon).
+
+### 🛡️ Phase 1.1: Validation & Security Layer
+To ensure data integrity and prevent server crashes, a robust validation layer was implemented using **express-validator**.
+
+- **Schema-Based Validation:** Created dedicated validators for all Category routes (Create, Update, Delete, Get).
+- **Custom Middleware:** Developed a `validatorMiddleware` to intercept requests, catch validation errors, and return clear JSON responses.
+- **Data Protection:** - Validating MongoDB IDs using `isMongoId()` to prevent cast errors.
+  - Enforcing string length constraints (Min: 3, Max: 32).
+  - Sanitizing inputs to ensure clean data reaches the database.
+- **Global Error Handling:** Integrated a centralized error handling mechanism to manage operational errors gracefully.
+
+---
+
+### 🚦 API Endpoints (Updated)
+| Method | Endpoint | Description | Validation |
+| :--- | :--- | :--- | :--- |
+| POST | `/api/v1/categories` | Create Category | Name (Req, Unique, 3-32 chars) |
+| GET | `/api/v1/categories` | Get All | Pagination Support |
+| GET | `/api/v1/categories/:id` | Get Specific | Valid MongoID |
+| PUT | `/api/v1/categories/:id` | Update | Valid MongoID + Name |
+| DELETE | `/api/v1/categories/:id` | Delete | Valid MongoID |
