@@ -1,11 +1,12 @@
 // Import mongoose
 const mongoose = require('mongoose');
-// 1- Create Schema
+// 1- Create categorySchema
 const categorySchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "Category Required"],
+      trim: true,
+      required: [true, "Category must be unique"],
       unique: [true, "Category"],
       minlength: [3, "Too short category name"],
       maxlength: [32, "Too long category name"]

@@ -12,6 +12,8 @@ const morgan = require("morgan");
 const dbConnection = require("./config/database");
 //Import categoryRoute from routes
 const categoryRoute = require("./routes/categoryRoute");
+//Import subCategoryRoute from routes
+const subCategoryRoute =require("./routes/subCategoryRoute");
 //Import class ApiError
 const ApiError = require("./utils/apiError");
 //Import globalError from middlewares folder from errorMiddleware.js
@@ -33,6 +35,8 @@ if (process.env.NODE_ENV == "development") {
 // Mount Routes
 //http://localhost:3000/api/v1/categories
 app.use("/api/v1/categories", categoryRoute);
+//http://localhost:3000/api/v1/subcategories
+app.use("/api/v1/subcategories", subCategoryRoute);
 
 //Middleware to handle error that I cannot handle it (Such as URL Not found)
 //Example --> URL --> http://localhost:3000/api/v2/categories
