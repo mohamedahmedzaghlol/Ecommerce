@@ -69,3 +69,19 @@ To ensure data integrity and prevent server crashes, a robust validation layer w
 | GET | `/api/v1/categories/:id` | Get Specific | Valid MongoID |
 | PUT | `/api/v1/categories/:id` | Update | Valid MongoID + Name |
 | DELETE | `/api/v1/categories/:id` | Delete | Valid MongoID |
+
+🚀 Phase 2: SubCategory Module (Current Progress)
+In this phase, we started building the hierarchical relationship between Categories and SubCategories.
+
+🛠️ What's Done So Far:
+Data Modeling: Created subCategoryModel with a Mongoose.Schema.ObjectId reference to the parent Category.
+
+Business Logic: Implemented the createSubCategory service using express-async-handler for clean async/await error handling.
+
+Routing: Set up the subCategoryRoute and mounted it in server.js under /api/v1/subcategories.
+
+Slugification: Integrated slugify to ensure SEO-friendly URLs for all sub-categories.
+Method,Endpoint,Description,Status
+Method,Endpoint,Description,Status
+POST,/api/v1/subcategories,Create a new SubCategory linked to a Category,✅ Done
+GET,/api/v1/subcategories,Get all SubCategories (Next Step),⏳ In Progress
