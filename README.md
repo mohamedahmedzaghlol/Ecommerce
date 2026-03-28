@@ -84,10 +84,11 @@ Centralized Error Handling: Leveraged a custom ApiError class and global error m
 
 Pagination & Logic: Applied dynamic pagination (page & limit) and used slugify to maintain SEO-friendly URLs during both creation and updates.
 
-🔌 Updated API Endpoints
-Method,Endpoint,Description,Status
-POST,/api/v1/subcategories,Create sub-category with parent category link,✅ Done
-GET,/api/v1/subcategories,Get paginated list of all sub-categories,✅ Done
-GET,/api/v1/subcategories/:id,Get specific sub-category by ID,✅ Done
-PUT,/api/v1/subcategories/:id,Update sub-category name/slug/parent,✅ Done
-DELETE,/api/v1/subcategories/:id,Soft/Hard delete for sub-category,✅ Done
+### 🚦 API Endpoints (Updated)
+| Method | Endpoint | Description | Validation |
+| :--- | :--- | :--- | :--- |
+| POST | `/api/v1/subcategories` | Create Category | Name (Req, Unique, 2-32 chars) |
+| GET | `/api/v1/subcategories` | Get All | Pagination Support |
+| GET | `/api/v1/subcategories/:id` | Get Specific | Valid MongoID |
+| PUT | `/api/v1/subcategories/:id` | Update | Valid MongoID + Name |
+| DELETE | `/api/v1/subcategories/:id` | Delete | Valid MongoID |
