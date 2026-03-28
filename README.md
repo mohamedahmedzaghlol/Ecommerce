@@ -70,18 +70,24 @@ To ensure data integrity and prevent server crashes, a robust validation layer w
 | PUT | `/api/v1/categories/:id` | Update | Valid MongoID + Name |
 | DELETE | `/api/v1/categories/:id` | Delete | Valid MongoID |
 
-🚀 Phase 2: SubCategory Module (Current Progress)
-In this phase, we started building the hierarchical relationship between Categories and SubCategories.
+🚀 Phase 2: SubCategory Complete CRUD & Validation
 
-🛠️ What's Done So Far:
-Data Modeling: Created subCategoryModel with a Mongoose.Schema.ObjectId reference to the parent Category.
+In this phase, I successfully implemented the full CRUD operations for the SubCategory module, ensuring a robust and secure data flow between the client and the MongoDB database.
 
-Business Logic: Implemented the createSubCategory service using express-async-handler for clean async/await error handling.
+🛠️ Key Technical Implementations:
 
-Routing: Set up the subCategoryRoute and mounted it in server.js under /api/v1/subcategories.
+Full CRUD Operations: Developed functional endpoints for Creating, Reading (List & Single), Updating, and Deleting sub-categories.
 
-Slugification: Integrated slugify to ensure SEO-friendly URLs for all sub-categories.
+Advanced Validation Layer: Integrated express-validator to perform schema-level checks and ensure isMongoId format for category references, preventing database errors.
+
+Centralized Error Handling: Leveraged a custom ApiError class and global error middleware to handle 404s and async exceptions gracefully.
+
+Pagination & Logic: Applied dynamic pagination (page & limit) and used slugify to maintain SEO-friendly URLs during both creation and updates.
+
+🔌 Updated API Endpoints
 Method,Endpoint,Description,Status
-Method,Endpoint,Description,Status
-POST,/api/v1/subcategories,Create a new SubCategory linked to a Category,✅ Done
-GET,/api/v1/subcategories,Get all SubCategories (Next Step),⏳ In Progress
+POST,/api/v1/subcategories,Create sub-category with parent category link,✅ Done
+GET,/api/v1/subcategories,Get paginated list of all sub-categories,✅ Done
+GET,/api/v1/subcategories/:id,Get specific sub-category by ID,✅ Done
+PUT,/api/v1/subcategories/:id,Update sub-category name/slug/parent,✅ Done
+DELETE,/api/v1/subcategories/:id,Soft/Hard delete for sub-category,✅ Done

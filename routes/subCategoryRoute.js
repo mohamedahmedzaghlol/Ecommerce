@@ -1,13 +1,34 @@
 //Import express
 const express = require("express");
+
 //Import subCategoryValidator
-const {createSubCategoryValidator} = require("../utils/validators/subCategoryValidator");
-//Import createSubCategory from services/subCategoryService.js
-const { createSubCategory } = require("../services/subCategoryService");
+const {
+  getSubCategoryValidator,
+  createSubCategoryValidator,
+  updateSubCategoryValidator,
+  deleteSubCategoryValidator
+} = require("../utils/validators/subCategoryValidator");
+
+//Import subCategoryService.js
+const {
+  getSubCategories,
+  getSubCategory,
+  createSubCategory,
+  updateSubCategory,
+  deleteSubCategory,
+} = require("../services/subCategoryService");
 //Import router
 const router = express.Router();
 
-router.route("/").post(createSubCategoryValidator,createSubCategory);
+router
+  .route("/")
+  .get(getSubCategories)
+  .post(createSubCategoryValidator, createSubCategory);
 
+router
+  .route("/:id")
+  .get(getSubCategoryValidator, getSubCategory)
+  .put(updateSubCategoryValidator,updateSubCategory)
+  .delete(deleteSubCategoryValidator,deleteSubCategory);
 //Export router to use it in server.js
 module.exports = router;
