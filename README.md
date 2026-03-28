@@ -132,3 +132,10 @@ Standardized Error Handling: Integrated with the global error middleware for con
 | GET | `/api/v1/brands/:id` | Get Specific Brand | Valid MongoID |
 | PUT | `/api/v1/brands/:id` | Update Brand | Valid MongoID + Optional Name |
 | DELETE | `/api/v1/brands/:id` | Delete Brand | Valid MongoID |
+
+🚀 Phase 4: Product Module (In Progress)
+In this phase, I started building the core of the e-commerce system: the Product Module. This model is designed to be highly relational and scalable, linking all previous modules together.
+🏗️ Product Schema Highlights:
+Comprehensive Details: Added fields for title, description, quantity, price, and sold to track inventory and sales.Rich Media: Support for both a imageCover (main image) and a list of images (gallery).Data Relationships: Established strong links between Products and Categories, SubCategories, and Brands using Mongoose ObjectId references.Ratings System: Included ratingsAverage and ratingsQuantity to prepare for customer reviews and feedback logic.Pricing Logic: Support for priceAfterDiscount to enable promotional features later.
+
+🚦 API Endpoints (Planned)MethodEndpointDescriptionStatusPOST/api/v1/productsCreate New Product⏳ PlannedGET/api/v1/productsGet All Products⏳ PlannedGET/api/v1/products/:idGet Specific Product⏳ Planned

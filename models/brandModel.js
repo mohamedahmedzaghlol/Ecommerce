@@ -20,7 +20,7 @@ const brandSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
-// 2- Create model
+// 2- Create BrandModel
 const BrandModel = mongoose.model('Brand', brandSchema);
 
 //Export BrandModel to use it in services in brandService.js
