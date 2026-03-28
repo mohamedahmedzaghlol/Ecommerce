@@ -106,7 +106,8 @@ Automated Data Linking: Implemented setCategoryIdToBody middleware to automatica
 
 Enhanced UX for Developers: This structure allows the Frontend to fetch all sub-categories belonging to a specific category using a single, clean URL.
 
-🚦 API Endpoints (Nested Routes)
-Method,Endpoint,Description,Status
-GET,/api/v1/categories/:categoryId/subcategories,Get all sub-categories for a specific category,✅ Active
-POST,/api/v1/categories/:categoryId/subcategories,Create a sub-category directly linked to a category,✅ Active
+### 🚦 API Endpoints (Nested Routes)
+| Method | Endpoint | Description | Validation |
+| :--- | :--- | :--- | :--- |
+| GET | `/api/v1/categories/:categoryId/subcategories` | Get SubCategories for Category | Valid Category MongoID |
+| POST | `/api/v1/categories/:categoryId/subcategories` | Create SubCategory on Category |Name (Req), Category ID from URL Name |
