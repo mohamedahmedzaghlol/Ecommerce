@@ -92,3 +92,21 @@ Pagination & Logic: Applied dynamic pagination (page & limit) and used slugify t
 | GET | `/api/v1/subcategories/:id` | Get Specific | Valid MongoID |
 | PUT | `/api/v1/subcategories/:id` | Update | Valid MongoID + Name |
 | DELETE | `/api/v1/subcategories/:id` | Delete | Valid MongoID |
+
+🔄 Phase 2.5: Advanced Nested Routing & Relationship Logic
+In this phase, I enhanced the API's flexibility by implementing Nested Routing. This allows for a more hierarchical and intuitive way to manage the relationship between Categories and SubCategories, similar to real-world E-commerce structures.
+
+🛠️ Key Technical Implementations:
+
+Route Merging: Leveraged mergeParams: true in Express Router to allow the SubCategory module to access parameters (like categoryId) defined in the parent Category routes.
+
+Dynamic Filter Middleware: Developed a reusable createFilterObj middleware that automatically detects if a request is coming from a nested route and filters the database results accordingly.
+
+Automated Data Linking: Implemented setCategoryIdToBody middleware to automatically extract the categoryId from the URL and inject it into the request body, ensuring seamless sub-category creation without redundant input.
+
+Enhanced UX for Developers: This structure allows the Frontend to fetch all sub-categories belonging to a specific category using a single, clean URL.
+
+🚦 API Endpoints (Nested Routes)
+Method,Endpoint,Description,Status
+GET,/api/v1/categories/:categoryId/subcategories,Get all sub-categories for a specific category,✅ Active
+POST,/api/v1/categories/:categoryId/subcategories,Create a sub-category directly linked to a category,✅ Active

@@ -16,8 +16,16 @@ const {
   updateCategory,
   deleteCategory,
 } = require("../services/categoryService");
+
+//Import subCategoryRoute
+const subCategoryRoute = require("./subCategoryRoute");
+
 //Import router
 const router = express.Router();
+
+//Nested Routes
+//http://localhost:3000/api/v1/categories/69c7bf0d16373fac88251ee8/subcategories
+router.use("/:categoryId/subcategories",subCategoryRoute);
 //===========================================
 // router.get("/", getCategories);
 // router.post("/", createCategory);

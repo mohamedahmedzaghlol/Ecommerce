@@ -16,14 +16,19 @@ const {
   createSubCategory,
   updateSubCategory,
   deleteSubCategory,
+  setCategoryIdToBody,
+  createFilterObj
 } = require("../services/subCategoryService");
+
 //Import router
-const router = express.Router();
+//mergeParams: Allow us to access parameters on other routes
+// We need to access categoryId from category router
+const router = express.Router({mergeParams: true});
 
 router
   .route("/")
-  .get(getSubCategories)
-  .post(createSubCategoryValidator, createSubCategory);
+  .get(createFilterObj,getSubCategories)
+  .post(setCategoryIdToBody,createSubCategoryValidator, createSubCategory);
 
 router
   .route("/:id")
