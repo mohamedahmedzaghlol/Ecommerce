@@ -40,5 +40,6 @@ router
   .get(getCategoryValidator, getCategory)
   .put(updateCategoryValidator, updateCategory)
   .delete(deleteCategoryValidator, deleteCategory);
+  
 //Export router to use it in server.js
 module.exports = router;

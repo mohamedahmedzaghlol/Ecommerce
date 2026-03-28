@@ -14,6 +14,8 @@ const dbConnection = require("./config/database");
 const categoryRoute = require("./routes/categoryRoute");
 //Import subCategoryRoute from routes
 const subCategoryRoute =require("./routes/subCategoryRoute");
+//Import brandRoute from routes
+const brandRoute = require("./routes/brandRoute")
 //Import class ApiError
 const ApiError = require("./utils/apiError");
 //Import globalError from middlewares folder from errorMiddleware.js
@@ -33,10 +35,12 @@ if (process.env.NODE_ENV == "development") {
   console.log(`mode: ${process.env.NODE_ENV}`);
 }
 // Mount Routes
-//http://localhost:3000/api/v1/categories
+// http://localhost:3000/api/v1/categories
 app.use("/api/v1/categories", categoryRoute);
-//http://localhost:3000/api/v1/subcategories
+// http://localhost:3000/api/v1/subcategories
 app.use("/api/v1/subcategories", subCategoryRoute);
+// http://localhost:3000/api/v1/brands
+app.use("/api/v1/brands", brandRoute);
 
 //Middleware to handle error that I cannot handle it (Such as URL Not found)
 //Example --> URL --> http://localhost:3000/api/v2/categories

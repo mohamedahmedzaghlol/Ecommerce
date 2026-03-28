@@ -111,3 +111,24 @@ Enhanced UX for Developers: This structure allows the Frontend to fetch all sub-
 | :--- | :--- | :--- | :--- |
 | GET | `/api/v1/categories/:categoryId/subcategories` | Get SubCategories for Category | Valid Category MongoID |
 | POST | `/api/v1/categories/:categoryId/subcategories` | Create SubCategory on Category |Name (Req), Category ID from URL Name |
+
+🚀 Phase 3: Brand Module Complete
+In this phase, I implemented the full Brand management system, providing a dedicated space for managing manufacturers and designers within the e-commerce ecosystem.
+
+🛠️ Key Technical Implementations:
+Brand Resource CRUD: Developed complete endpoints for creating, retrieving, updating, and deleting brands.
+
+Slugification: Integrated slugify to ensure all brand names are URL-friendly and SEO-optimized.
+
+Data Integrity: Applied strict validation rules using express-validator to ensure unique names and valid MongoIDs.
+
+Standardized Error Handling: Integrated with the global error middleware for consistent API responses.
+
+### 🚦 API Endpoints (Brands)
+| Method | Endpoint | Description | Validation |
+| :--- | :--- | :--- | :--- |
+| POST | `/api/v1/brands` | Create New Brand | Name (Req, Unique, 3-32 chars) |
+| GET | `/api/v1/brands` | Get All Brands | Pagination Support (Page, Limit) |
+| GET | `/api/v1/brands/:id` | Get Specific Brand | Valid MongoID |
+| PUT | `/api/v1/brands/:id` | Update Brand | Valid MongoID + Optional Name |
+| DELETE | `/api/v1/brands/:id` | Delete Brand | Valid MongoID |
