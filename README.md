@@ -133,9 +133,28 @@ Standardized Error Handling: Integrated with the global error middleware for con
 | PUT | `/api/v1/brands/:id` | Update Brand | Valid MongoID + Optional Name |
 | DELETE | `/api/v1/brands/:id` | Delete Brand | Valid MongoID |
 
-🚀 Phase 4: Product Module (In Progress)
-In this phase, I started building the core of the e-commerce system: the Product Module. This model is designed to be highly relational and scalable, linking all previous modules together.
-🏗️ Product Schema Highlights:
-Comprehensive Details: Added fields for title, description, quantity, price, and sold to track inventory and sales.Rich Media: Support for both a imageCover (main image) and a list of images (gallery).Data Relationships: Established strong links between Products and Categories, SubCategories, and Brands using Mongoose ObjectId references.Ratings System: Included ratingsAverage and ratingsQuantity to prepare for customer reviews and feedback logic.Pricing Logic: Support for priceAfterDiscount to enable promotional features later.
+🚀 Phase 4: Core Product Module & Data Relationships
+In this milestone, I successfully implemented the central Product Module, which acts as the core engine of the e-commerce platform. This phase involved creating complex data relationships and rigorous validation logic to ensure data integrity across the system.
 
-🚦 API Endpoints (Planned)MethodEndpointDescriptionStatusPOST/api/v1/productsCreate New Product⏳ PlannedGET/api/v1/productsGet All Products⏳ PlannedGET/api/v1/products/:idGet Specific Product⏳ Planned
+🛠️ Key Technical Achievements:
+Relational Database Design: Leveraged Mongoose ObjectIds and ref to build a synchronized ecosystem where Products are strictly linked to Categories, SubCategories, and Brands.
+
+Advanced Request Validation: Integrated express-validator to perform multi-layered checks, including a custom validator to ensure that priceAfterDiscount is logically lower than the original price.
+
+Automated Slugification: Implemented automatic URL-friendly slug generation for product titles to enhance SEO and routing.
+
+Dynamic Inventory Logic: Managed real-time fields for quantity and sold counts to track product availability and popularity.
+
+Standardized CRUD Operations: Built high-performance endpoints for Product management with built-in pagination and error handling via a global middleware.
+
+🧪 Sample Product Data (Tested via Postman):
+I verified the implementation by creating real-world entities such as high-end electronics and fashion items, ensuring all relational IDs (Category/Brand) are correctly mapped in the database.
+
+### 🚦 API Endpoints (Brands)
+| Method | Endpoint | Description | Validation |
+| :--- | :--- | :--- | :--- |
+| POST | `/api/v1/products` | Create a new product | Title (3-100), Desc (min 20), Price, Category (Req), priceAfterDiscount < price |
+| GET | `/api/v1/products` | Get list of all products | Pagination (page, limit) |
+| GET | `/api/v1/products/:id` | Get specific product by ID | Valid MongoID format |
+| PUT | `/api/v1/products/:id` | Update product details | Valid MongoID + Body Validation |
+| DELETE | `/api/v1/products/:id` | Remove product from DB | Valid MongoID format |

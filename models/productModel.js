@@ -76,4 +76,4 @@ const productSchema = new mongoose.Schema(
 const ProductModel = mongoose.model('Product', productSchema);
 
 //Export BrandModel to use it in services in productService.js
-module.exports = productSchema;
+module.exports = ProductModel;

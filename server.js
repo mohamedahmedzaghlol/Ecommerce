@@ -16,6 +16,8 @@ const categoryRoute = require("./routes/categoryRoute");
 const subCategoryRoute =require("./routes/subCategoryRoute");
 //Import brandRoute from routes
 const brandRoute = require("./routes/brandRoute")
+//Import productRoute from routes
+const productRoute = require("./routes/productRoute");
 //Import class ApiError
 const ApiError = require("./utils/apiError");
 //Import globalError from middlewares folder from errorMiddleware.js
@@ -41,7 +43,8 @@ app.use("/api/v1/categories", categoryRoute);
 app.use("/api/v1/subcategories", subCategoryRoute);
 // http://localhost:3000/api/v1/brands
 app.use("/api/v1/brands", brandRoute);
-
+// http://localhost:3000/api/v1/products
+app.use("/api/v1/products", productRoute);
 //Middleware to handle error that I cannot handle it (Such as URL Not found)
 //Example --> URL --> http://localhost:3000/api/v2/categories
 app.all(/.*/, (req, res, next) => {
