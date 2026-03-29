@@ -158,3 +158,12 @@ I verified the implementation by creating real-world entities such as high-end e
 | GET | `/api/v1/products/:id` | Get specific product by ID | Valid MongoID format |
 | PUT | `/api/v1/products/:id` | Update product details | Valid MongoID + Body Validation |
 | DELETE | `/api/v1/products/:id` | Remove product from DB | Valid MongoID format |
+
+✅ Phase 4.1: Enhanced Data Integrity & Cross-Model Validation
+In this update, I implemented advanced validation logic to ensure strict data consistency between Products and Categories.
+
+Database Existence Check: Integrated a custom asynchronous validator that queries the CategoryModel before product creation. This prevents orphaned products by ensuring the referenced categoryId actually exists in the database.
+
+Asynchronous Error Handling: Utilized Promise.reject within express-validator to provide meaningful, real-time feedback to the API consumer in case of invalid references.
+
+Security & Reliability: This layer of defense ensures that the backend remains the "Single Source of Truth," even if incorrect data is sent from the frontend.

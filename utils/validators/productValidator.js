@@ -3,7 +3,8 @@
 const { check } = require("express-validator");
 //Import validatorMiddleware.js
 const validatorMiddleware = require("../../middlewares/validatorMiddleware");
-
+//Import CategoryModel
+const CategoryModel = require("../../models/categoryModel");
 //Import productValidator to use it in routes in categoryRoute.js
 
 exports.createProductValidator = [
@@ -58,7 +59,16 @@ exports.createProductValidator = [
     .notEmpty()
     .withMessage("Product must be belong to a category")
     .isMongoId()
-    .withMessage("Invalid ID formate"),
+    .withMessage("Invalid ID formate")
+    .custom((categoryId) =>
+      CategoryModel.findById(categoryId).then((category) => {
+        if (!category) {
+          return Promise.reject(
+            new Error(`No category for this id: ${categoryId}`),
+          );
+        }
+      }),
+    ),
   check("subcategories")
     .optional()
     .isMongoId()
