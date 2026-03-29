@@ -176,3 +176,13 @@ Bulk Existence Check: Integrated the $in operator to validate multiple subcatego
 Length Consistency Verification: Added logic to compare result counts against input array length, ensuring every provided ID is valid before proceeding.
 
 Relational Integrity: This ensures that products are always tagged with legitimate subcategories, preventing "ghost" references in the inventory system.
+
+✅ Phase 4.3: Strict Relational Integrity Validation
+
+Implemented a sophisticated validation layer to enforce strict hierarchical relationships between Categories and Subcategories.
+
+Cross-Reference Validation: Developed a custom validator that verifies if the provided subcategoriesIds are logically linked to the parent categoryId in the database.
+
+Array Integrity Check: Used functional programming patterns (.every()) to ensure 100% compliance for multi-item subcategory inputs.
+
+Error Precision: Engineered specific error responses to distinguish between "Invalid ID format" and "Logic Mismatch" (Subcategory not belonging to Category), significantly improving the developer experience for frontend integration.
