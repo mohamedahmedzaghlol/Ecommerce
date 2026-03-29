@@ -1,8 +1,9 @@
 const fs = require('fs');
-//require('colors');
+require('colors');
 const dotenv = require('dotenv');
-const Product = require('../../models/productModel');
+const ProductModel = require('../../models/productModel');
 const dbConnection = require('../../config/database');
+
 
 dotenv.config({ path: '../../config.env' });
 
@@ -10,14 +11,13 @@ dotenv.config({ path: '../../config.env' });
 dbConnection();
 
 // Read data
-const products = JSON.parse(fs.readFileSync('./products.json'));
+const products = JSON.parse(fs.readFileSync('./product.json'));
 
 
 // Insert data into DB
 const insertData = async () => {
   try {
-    await Product.create(products);
-
+    await ProductModel.create(products);
     console.log('Data Inserted'.green.inverse);
     process.exit();
   } catch (error) {
@@ -28,7 +28,7 @@ const insertData = async () => {
 // Delete data from DB
 const destroyData = async () => {
   try {
-    await Product.deleteMany();
+    await ProductModel.deleteMany();
     console.log('Data Destroyed'.red.inverse);
     process.exit();
   } catch (error) {

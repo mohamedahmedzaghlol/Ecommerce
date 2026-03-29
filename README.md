@@ -186,3 +186,17 @@ Cross-Reference Validation: Developed a custom validator that verifies if the pr
 Array Integrity Check: Used functional programming patterns (.every()) to ensure 100% compliance for multi-item subcategory inputs.
 
 Error Precision: Engineered specific error responses to distinguish between "Invalid ID format" and "Logic Mismatch" (Subcategory not belonging to Category), significantly improving the developer experience for frontend integration.
+
+## 🚀 Data Seeding & Development Environment
+
+To streamline the development process and test the **MVC architecture**, I implemented a custom **Data Seeding Script**. This allows for populating the database with initial product data without manual entry.
+
+### Key Features:
+* **Automated Seeding**: A robust `seeder.js` script to bulk-insert products into MongoDB using Mongoose.
+* **Data Integrity**: Integrated with **express-validator** to ensure all seeded products match the required schema and reference valid Category/Brand IDs.
+* **Flexible CLI Commands**:
+    * `node seeder.js -i`: To import data into the database.
+    * `node seeder.js -d`: To safely clear the collection for a fresh start.
+
+### Results:
+* Successfully managed a hybrid database state with **11 products** (Real & Mock data).
