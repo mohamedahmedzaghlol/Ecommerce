@@ -5,6 +5,8 @@ const { check } = require("express-validator");
 const validatorMiddleware = require("../../middlewares/validatorMiddleware");
 //Import CategoryModel
 const CategoryModel = require("../../models/categoryModel");
+//Import subCategoryModel
+const subCategoryModel = require("../../models/subCategoryModel");
 //Import productValidator to use it in routes in categoryRoute.js
 
 exports.createProductValidator = [
@@ -72,7 +74,16 @@ exports.createProductValidator = [
   check("subcategories")
     .optional()
     .isMongoId()
-    .withMessage("Invalid ID formate"),
+    .withMessage("Invalid ID formate")
+    .custom((subcategoriesIds) =>
+      subCategoryModel.find({ _id: { $exists: true, $in: subcategoriesIds } }).then(
+        (result) => {
+          if (result.length < 1 || result.length !== subcategoriesIds.length) {
+            return Promise.reject(new Error(`Invalid subcategories Ids`));
+          }
+        },
+      ),
+    ),
   check("brand").optional().isMongoId().withMessage("Invalid ID formate"),
   check("ratingsAverage")
     .optional()

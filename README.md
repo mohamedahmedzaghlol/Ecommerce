@@ -167,3 +167,12 @@ Database Existence Check: Integrated a custom asynchronous validator that querie
 Asynchronous Error Handling: Utilized Promise.reject within express-validator to provide meaningful, real-time feedback to the API consumer in case of invalid references.
 
 Security & Reliability: This layer of defense ensures that the backend remains the "Single Source of Truth," even if incorrect data is sent from the frontend.
+
+✅ Phase 4.2: Advanced Subcategory Validation logic
+Implemented complex relational validation to maintain strict data hierarchy.
+
+Bulk Existence Check: Integrated the $in operator to validate multiple subcategoriesIds simultaneously against the database.
+
+Length Consistency Verification: Added logic to compare result counts against input array length, ensuring every provided ID is valid before proceeding.
+
+Relational Integrity: This ensures that products are always tagged with legitimate subcategories, preventing "ghost" references in the inventory system.
