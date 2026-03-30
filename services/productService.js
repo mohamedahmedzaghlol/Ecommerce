@@ -13,13 +13,13 @@ const ProductModel = require("../models/productModel");
 // @route GET  http://localhost:3000/api/v1/products
 // @access Public
 exports.getProducts = asyncHandler(async (req, res) => {
-// 1) Filtering
+  // 1) Filtering
   const queryStringObj = { ...req.query };
   const excludesFields = ["page", "sort", "limit", "fields"];
   excludesFields.forEach((field) => delete queryStringObj[field]);
 
   let queryStr = JSON.stringify(queryStringObj);
-  
+
   // أولاً: بنحول gte لـ $gte
   queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
 
@@ -28,10 +28,10 @@ exports.getProducts = asyncHandler(async (req, res) => {
   let finalQuery = JSON.parse(queryStr);
 
   // تريك إضافية عشان نضمن إن الـ Nested Objects تفك صح
-  Object.keys(finalQuery).forEach(key => {
-    if (key.includes('[')) {
-      const mainKey = key.split('[')[0]; // ratingsAverage
-      const op = key.split('[')[1].replace(']', ''); // $gte
+  Object.keys(finalQuery).forEach((key) => {
+    if (key.includes("[")) {
+      const mainKey = key.split("[")[0]; // ratingsAverage
+      const op = key.split("[")[1].replace("]", ""); // $gte
       finalQuery[mainKey] = { [op]: finalQuery[key] };
       delete finalQuery[key];
     }
@@ -44,13 +44,22 @@ exports.getProducts = asyncHandler(async (req, res) => {
   const limit = req.query.limit * 1 || 50;
   const skip = (page - 1) * limit;
 
-  // 3) Build Query
-  const mongooseQuery = ProductModel.find(finalQuery)
+  // Build Query
+  let mongooseQuery = ProductModel.find(finalQuery)
     .skip(skip)
     .limit(limit)
     .populate({ path: "category", select: "name -_id" });
 
-  // 4) Execute Query
+  // 3) Sorting
+  if (req.query.sort) {
+    // "price,sold" -> "price sold"
+    const sortBy = req.query.sort.split(",").join(" ");
+    mongooseQuery = mongooseQuery.sort(sortBy);
+  } else {
+    mongooseQuery = mongooseQuery.sort("-createdAt");
+  }
+
+  // Execute Query
   const products = await mongooseQuery;
   res.status(200).json({ result: products.length, page, data: products });
 });

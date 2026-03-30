@@ -223,3 +223,14 @@ Log Transparency: Implemented detailed terminal logging for the "Final Mongo Que
 Results:
 Successfully achieved a Result: 11 products match for broad queries and precise filtering for specific rating criteria (e.g., finding products with ratingsAverage > 4.5).
 
+✅ Phase 4.5: Multi-Field Sorting Engine
+
+In this stage, I enhanced the API's usability by implementing a flexible and intuitive sorting mechanism. This allows users to organize product data based on various criteria like price, popularity, or date.
+
+Dynamic Sorting: Users can sort by any field in the Product model (e.g., price, sold, ratingsAverage).
+
+Multi-Criteria Support: Engineered the logic to handle multiple sorting parameters simultaneously. By converting comma-separated URL strings into Mongoose-friendly space-separated values, users can now request complex sorts like ?sort=-sold,price (Most sold first, then cheapest).
+
+Directional Control: Integrated support for ascending and descending orders using the - prefix (e.g., -price for most expensive).
+
+Default Baseline: Established a default sorting rule (-createdAt) to ensure that new arrivals are always prioritized if no specific sort is requested.
