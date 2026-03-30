@@ -267,3 +267,33 @@ Multi-Field Scan: The search engine doesn't just look at titles; it uses MongoDB
 Regex-Powered Search: Instead of rigid exact matches, I implemented Regular Expressions (Regex) with the i option (case-insensitive). This allows for "Fuzzy Matching," where searching for gam will successfully return Gaming Laptop, Video Games, etc..
 
 Query Sanitization: Integrated keyword into the filtering exclusion list to prevent the system from treating the search term as a static database field.
+
+🌐 Phase 4.8: Infrastructure & Middleware Optimization
+
+In this update, I focused on enhancing the API's performance, security, and developer experience by integrating industry-standard middlewares.
+
+🛠️ Key Technical Implementations:
+
+Cross-Origin Resource Sharing (CORS):
+
+  Integrated the cors middleware to enable secure communication between the Backend (Node.js) and the Frontend (React).
+
+  Configured pre-flight requests using app.options() to support all HTTP methods (GET, POST, PUT, DELETE).
+
+Response Compression:
+
+  Implemented compression middleware using Gzip. This significantly reduces the size of the JSON response payload, leading to faster data loading on the frontend and a better user experience, especially on slower networks.
+
+Developer Workflow (Postman Automation):
+
+  Optimized the testing workflow by implementing Postman Environment Variables.
+
+  Using a centralized {{URL}} variable allows for seamless switching between Localhost and Production environments without manually updating every request.
+
+### 🚦 Updated Server Architecture
+| Middleware | Purpose | Benefit | 
+| :--- | :--- | :--- | 
+| CORS | `Cross-Origin Access` | Enables React/Frontend Integration |
+| Compression | `Gzip Payload` | Faster Response Times |
+| HPP | `Parameter Protection` | Prevents Query Pollution Attacks |
+| Morgan | `Request Logging` | Real-time Development Monitoring |

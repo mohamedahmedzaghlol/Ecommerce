@@ -8,6 +8,10 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "config.env" });
 //Import morgan
 const morgan = require("morgan");
+//Import  cors
+const cors = require("cors");
+//Import compression
+const compression = require("compression");
 //Import hpp
 const hpp = require('hpp');
 //Import dbConnection
@@ -27,8 +31,17 @@ const globalError = require("./middlewares/errorMiddleware");
 
 //Connect with database
 dbConnection();
+
 //take object or instance from express to use its methods
 const app = express();
+
+//Use cors
+// Enable other domains to access my application
+app.use(cors());
+app.options(/.*/, cors());
+
+// compress all responses
+app.use(compression());
 
 // Middlewares
 app.use(express.json()); // to parse json to js object
