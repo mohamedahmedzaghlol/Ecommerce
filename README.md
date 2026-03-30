@@ -8,6 +8,18 @@ A robust and scalable E-commerce RESTful API built with **Node.js**, **Express**
 
 In this phase, the core structure of the project was established along with the complete CRUD operations for Categories.
 
+## 🛡️ Phase 1.1: Validation & Global Error Handling (Refined)
+
+In this sub-phase, I moved the project from basic error responses to a professional, centralized error management system.
+
+### ✅ Key Technical Implementations:
+
+- **Centralized Global Error Middleware:** Developed a custom `globalError` handler to manage all application exceptions in one place.
+- **Multi-Environment Configuration:** - **Development Mode:** Returns full error details (Stack Trace & Error Object) for efficient debugging.
+  - **Production Mode:** Returns clean, user-friendly messages to ensure security and professional API output.
+- **Cross-Platform Compatibility:** Integrated `cross-env` to manage `NODE_ENV` across different operating systems (Windows/macOS), ensuring stable environment switching.
+- **Advanced Validator Integration:** Refactored `validatorMiddleware` to forward `express-validator` errors directly to the Global Error Handler using `next(err)`, maintaining a unified response format.
+
 ### ✅ Features Completed:
 
 - **Project Setup:** Initialized the environment with Node.js and Express.
@@ -47,7 +59,8 @@ To run this project, you will need to create a `.env` file and add the following
 
 1. Clone the repo.
 2. Run `npm install`.
-3. Start the server using `npm run dev` (Nodemon).
+3. Start in Dev mode: `npm run dev` (Nodemon).
+4. Start in Prod mode: `npm run prod` (Cross-env Production).
 
 ### 🛡️ Phase 1.1: Validation & Security Layer
 To ensure data integrity and prevent server crashes, a robust validation layer was implemented using **express-validator**.
