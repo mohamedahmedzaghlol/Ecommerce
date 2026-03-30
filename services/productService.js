@@ -12,12 +12,48 @@ const ProductModel = require("../models/productModel");
 // @desc Get list of products
 // @route GET  http://localhost:3000/api/v1/products
 // @access Public
-exports.getProducts = asyncHandler(async(req, res) => {
+exports.getProducts = asyncHandler(async (req, res) => {
+// 1) Filtering
+  const queryStringObj = { ...req.query };
+  const excludesFields = ["page", "sort", "limit", "fields"];
+  excludesFields.forEach((field) => delete queryStringObj[field]);
+
+  // التعديل السحري هنا:
+  let queryStr = JSON.stringify(queryStringObj);
+  
+  // أولاً: بنحول gte لـ $gte
+  queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
+
+  // ثانياً: بنصلح الأقواس لو موجودة ونحولها لشكل Object
+  // دي اللي هتحول 'ratingsAverage[gte]' لشكل يفهمه المونجو
+  let finalQuery = JSON.parse(queryStr);
+
+  // تريك إضافية عشان نضمن إن الـ Nested Objects تفك صح
+  Object.keys(finalQuery).forEach(key => {
+    if (key.includes('[')) {
+      const mainKey = key.split('[')[0]; // ratingsAverage
+      const op = key.split('[')[1].replace(']', ''); // $gte
+      finalQuery[mainKey] = { [op]: finalQuery[key] };
+      delete finalQuery[key];
+    }
+  });
+
+  console.log("Final Mongo Query:", finalQuery);
+
+  // 2) Pagination
   const page = req.query.page * 1 || 1;
-  const limit = req.query.limit * 1 || 5;
+  const limit = req.query.limit * 1 || 50;
   const skip = (page - 1) * limit;
-  const products = await ProductModel.find({}).skip(skip).limit(limit);
-  res.status(200).json({result: products.length,page ,data: products});
+
+  // 3) Build Query
+  const mongooseQuery = ProductModel.find(finalQuery)
+    .skip(skip)
+    .limit(limit)
+    .populate({ path: "category", select: "name -_id" });
+
+  // 4) Execute Query
+  const products = await mongooseQuery;
+  res.status(200).json({ result: products.length, page, data: products });
 });
 
 //exports.getProduct to use it in routes in productRoute.js
@@ -25,14 +61,14 @@ exports.getProducts = asyncHandler(async(req, res) => {
 // @desc Get product By id
 // @route GET  http://localhost:3000/api/v1/products/:id
 // @access Public
-exports.getProduct = asyncHandler(async(req,res,next) => {
-  const {id} = req.params;
+exports.getProduct = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
   const product = await ProductModel.findById(id);
   if (!product) {
     // //res.status(404).json({msg: `No product for this id ${id}`});
-    return next(new ApiError(`No product for this id ${id}`,404));
+    return next(new ApiError(`No product for this id ${id}`, 404));
   }
-  res.status(200).json({data: product});
+  res.status(200).json({ data: product });
 });
 
 //exports.createProduct to use it in routes in productRoute.js
@@ -40,10 +76,10 @@ exports.getProduct = asyncHandler(async(req,res,next) => {
 // @desc Create product
 // @route POST  http://localhost:3000/api/v1/products
 // @access Private
-exports.createProduct = asyncHandler(async(req,res) => {
+exports.createProduct = asyncHandler(async (req, res) => {
   req.body.slug = slugify(req.body.title);
   const product = await ProductModel.create(req.body);
-  res.status(201).json({data: product});
+  res.status(201).json({ data: product });
 });
 
 //exports.updateProduct to use it in routes in productRoute.js
@@ -51,30 +87,28 @@ exports.createProduct = asyncHandler(async(req,res) => {
 // @desc Update Product
 // @route UPDATE  http://localhost:3000/api/v1/products/:id
 // @access Private
-exports.updateProduct = asyncHandler(async(req,res,next) => {
-  const {id} = req.params;
+exports.updateProduct = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
   req.body.slug = slugify(req.body.title);
-  const product = await ProductModel.findOneAndUpdate(
-    {_id: id},
-    req.body,
-    {new: true}
-  );
+  const product = await ProductModel.findOneAndUpdate({ _id: id }, req.body, {
+    new: true,
+  });
   if (!product) {
-    return next(new ApiError(`No product for this id ${id}`,404));
+    return next(new ApiError(`No product for this id ${id}`, 404));
   }
-  res.status(200).json({data: product});
-})
+  res.status(200).json({ data: product });
+});
 
 //exports.deleteProduct to use it in routes in productRoute.js
 //express-async-handler & async & await
 // @desc Delete product
 // @route DELETE  http://localhost:3000/api/v1/products/:id
 // @access Private
-exports.deleteProduct = asyncHandler(async(req,res,next) => {
-  const {id} = req.params;
+exports.deleteProduct = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
   const product = await ProductModel.findByIdAndDelete(id);
   if (!product) {
-    return next(new ApiError(`No product for this id ${id}`,404));
+    return next(new ApiError(`No product for this id ${id}`, 404));
   }
   res.status(204).send();
-})
+});

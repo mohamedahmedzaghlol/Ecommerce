@@ -8,6 +8,8 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "config.env" });
 //Import morgan
 const morgan = require("morgan");
+//Import hpp
+const hpp = require('hpp');
 //Import dbConnection
 const dbConnection = require("./config/database");
 //Import categoryRoute from routes
@@ -30,6 +32,7 @@ const app = express();
 
 // Middlewares
 app.use(express.json()); // to parse json to js object
+app.use(hpp());
 //create route to ensure that the server is running on port 3000
 //Use morgan middleware to logg API Reequest in mode  development
 if (process.env.NODE_ENV == "development") {

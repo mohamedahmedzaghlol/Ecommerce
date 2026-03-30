@@ -200,3 +200,26 @@ To streamline the development process and test the **MVC architecture**, I imple
 
 ### Results:
 * Successfully managed a hybrid database state with **11 products** (Real & Mock data).
+
+🔍 Phase 4.4: Dynamic Query Intelligence & Advanced Filtration
+
+In this phase, I elevated the API's capability from simple data retrieval to a Dynamic Search Engine capable of handling complex, real-world filtering scenarios.
+
+Key Technical Achievements:
+Advanced Filtering Engine: Engineered a custom logic to parse URL query parameters and support comparison operators like [gt], [gte], [lt], and [lte].
+
+Regex-Powered Query Transformation: Implemented a sophisticated Regular Expression (Regex) mapping system that dynamically injects MongoDB operators ($) into the query object, bridging the gap between frontend requests and database execution.
+
+Nested Bracket Notation Support: Solved the "Object-null prototype" challenge in Express by developing a recursive key-mapping strategy, ensuring that nested queries (e.g., ratingsAverage[gt]=4.5) are correctly interpreted as JSON objects by Mongoose.
+
+Clean Query Execution: Integrated a "Field Exclusion" layer to sanitize req.query from operational parameters like page, sort, and limit before database interaction, ensuring 100% accurate filtration results.
+
+Validation & Testing:
+
+Postman Rigorous Testing: Verified the engine across multiple edge cases, confirming consistent 200 OK responses and accurate data subsets for price ranges and rating thresholds.
+
+Log Transparency: Implemented detailed terminal logging for the "Final Mongo Query" to monitor database interactions in real-time during the development phase.
+
+Results:
+Successfully achieved a Result: 11 products match for broad queries and precise filtering for specific rating criteria (e.g., finding products with ratingsAverage > 4.5).
+
