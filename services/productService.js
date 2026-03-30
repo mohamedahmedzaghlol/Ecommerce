@@ -18,7 +18,6 @@ exports.getProducts = asyncHandler(async (req, res) => {
   const excludesFields = ["page", "sort", "limit", "fields"];
   excludesFields.forEach((field) => delete queryStringObj[field]);
 
-  // التعديل السحري هنا:
   let queryStr = JSON.stringify(queryStringObj);
   
   // أولاً: بنحول gte لـ $gte
