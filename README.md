@@ -234,3 +234,23 @@ Multi-Criteria Support: Engineered the logic to handle multiple sorting paramete
 Directional Control: Integrated support for ascending and descending orders using the - prefix (e.g., -price for most expensive).
 
 Default Baseline: Established a default sorting rule (-createdAt) to ensure that new arrivals are always prioritized if no specific sort is requested.
+
+✅ Phase 4.6: Advanced Field Limiting (Data Projection)
+
+In this phase, I optimized the API response payload to improve performance and security.
+
+Custom Projections: Enabled users to specify exactly which fields they want to retrieve (e.g., ?fields=title,price), significantly reducing network latency.
+
+Sensitive Data Masking: Implemented an automated exclusion for internal fields like __v to ensure a clean and secure JSON output.
+
+Negative Selection: Supported field exclusion syntax (e.g., ?fields=-price) to hide specific fields while showing everything else.
+
+✅ Phase 4.7: Global Search Engine (Fuzzy Matching)
+
+I developed a powerful search functionality that allows users to find products across multiple attributes.
+
+Multi-Field Scan: The search engine doesn't just look at titles; it uses MongoDB's $or operator to scan both title and description simultaneously.
+
+Regex-Powered Search: Instead of rigid exact matches, I implemented Regular Expressions (Regex) with the i option (case-insensitive). This allows for "Fuzzy Matching," where searching for gam will successfully return Gaming Laptop, Video Games, etc..
+
+Query Sanitization: Integrated keyword into the filtering exclusion list to prevent the system from treating the search term as a static database field.

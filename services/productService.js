@@ -15,7 +15,7 @@ const ProductModel = require("../models/productModel");
 exports.getProducts = asyncHandler(async (req, res) => {
   // 1) Filtering
   const queryStringObj = { ...req.query };
-  const excludesFields = ["page", "sort", "limit", "fields"];
+  const excludesFields = ["page", "sort", "limit", "fields", "keyword"];
   excludesFields.forEach((field) => delete queryStringObj[field]);
 
   let queryStr = JSON.stringify(queryStringObj);
@@ -57,6 +57,24 @@ exports.getProducts = asyncHandler(async (req, res) => {
     mongooseQuery = mongooseQuery.sort(sortBy);
   } else {
     mongooseQuery = mongooseQuery.sort("-createdAt");
+  }
+
+  // 4) Fields Limiting
+  if (req.query.fields) {
+    // title,ratingsAverage,imageCover,price
+    const fields = req.query.fields.split(",").join(" ");
+    // title ratingsAverage imageCover price
+    mongooseQuery = mongooseQuery.select(fields);
+  }
+
+  // 5) Search
+  if (req.query.keyword) {
+    let query = {};
+    query.$or = [
+      { title: { $regex: req.query.keyword, $options: "i" } },
+      { description: { $regex: req.query.keyword, $options: "i" } },
+    ];
+    mongooseQuery = mongooseQuery.find(query);
   }
 
   // Execute Query
