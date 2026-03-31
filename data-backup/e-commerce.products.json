@@ -1,0 +1,394 @@
+[{
+  "_id": {
+    "$oid": "69c8dfcc6dab9d2005b6e6ed"
+  },
+  "title": "Apple iPhone 15 Pro 256GB - Blue Titanium",
+  "slug": "apple-iphone-15-pro-256gb-blue-titanium",
+  "description": "The iPhone 15 Pro features a strong and light aerospace-grade titanium design with a textured matte-glass back.",
+  "quantity": 50,
+  "sold": 12,
+  "price": 55000,
+  "priceAfterDiscount": 53500,
+  "colors": [
+    "Blue",
+    "Natural Titanium",
+    "Black"
+  ],
+  "imageCover": "https://m.media-amazon.com/images/I/81Sig6biNGL._AC_SL1500_.jpg",
+  "images": [],
+  "category": {
+    "$oid": "69c6ac520e1e783aeb66bc49"
+  },
+  "subcategories": [
+    {
+      "$oid": "69c6bfd0800db77841a76d13"
+    }
+  ],
+  "brand": {
+    "$oid": "69c7ef55dfa156e09955360f"
+  },
+  "ratingsAverage": 4.8,
+  "ratingsQuantity": 150,
+  "createdAt": {
+    "$date": "2026-03-29T08:16:12.344Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-29T08:16:12.344Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c8e2136dab9d2005b6e6f7"
+  },
+  "title": "Adidas Ultraboost Light Running Shoes",
+  "slug": "adidas-ultraboost-light-running-shoes",
+  "description": "Experience epic energy with the new Ultraboost Light, our lightest Ultraboost ever made with 30% lighter BOOST material.",
+  "quantity": 100,
+  "sold": 45,
+  "price": 8500,
+  "colors": [
+    "White",
+    "Black",
+    "Grey"
+  ],
+  "imageCover": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/7ebf4f03930b49048386af4f00994f79_9366/Ultraboost_Light_Shoes_White_HQ6339_01_standard.jpg",
+  "images": [],
+  "category": {
+    "$oid": "69c6ad330e1e783aeb66bc4f"
+  },
+  "subcategories": [
+    {
+      "$oid": "69c78f138027bab0270b34c5"
+    }
+  ],
+  "brand": {
+    "$oid": "69c7f09cdfa156e099553635"
+  },
+  "ratingsAverage": 4.5,
+  "ratingsQuantity": 85,
+  "createdAt": {
+    "$date": "2026-03-29T08:25:55.646Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-29T08:25:55.646Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c8e3196dab9d2005b6e6fc"
+  },
+  "title": "Samsung 2-Door Top Mount Refrigerator 350L",
+  "slug": "samsung-2-door-top-mount-refrigerator-350l",
+  "description": "Digital Inverter Technology for energy efficiency and long-lasting performance with All-around Cooling system.",
+  "quantity": 20,
+  "sold": 5,
+  "price": 28000,
+  "priceAfterDiscount": 26500,
+  "colors": [],
+  "imageCover": "https://images.samsung.com/is/image/samsung/p6pim/eg/rt35k5440s8-mr/gallery/eg-top-mount-freezer-rt35k5440s8-mr-532168545?$720_576_PNG$",
+  "images": [],
+  "category": {
+    "$oid": "69c6ad280e1e783aeb66bc4d"
+  },
+  "subcategories": [
+    {
+      "$oid": "69c78eb58027bab0270b34ba"
+    }
+  ],
+  "brand": {
+    "$oid": "69c7ef62dfa156e099553611"
+  },
+  "ratingsAverage": 4.2,
+  "ratingsQuantity": 30,
+  "createdAt": {
+    "$date": "2026-03-29T08:30:17.610Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-29T08:30:17.610Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c9206651fda353874315d3"
+  },
+  "title": "Dell G15 Gaming Laptop",
+  "slug": "dell-g15-gaming-laptop",
+  "description": "Powerful gaming performance with NVIDIA GeForce RTX 4060 and Intel Core i7 13th Gen.",
+  "quantity": 15,
+  "sold": 0,
+  "price": 42000,
+  "colors": [],
+  "imageCover": "https://m.media-amazon.com/images/I/71S8-l-9uXL._AC_SL1500_.jpg",
+  "images": [],
+  "category": {
+    "$oid": "69c6ac520e1e783aeb66bc49"
+  },
+  "subcategories": [
+    {
+      "$oid": "69c78e1e8027bab0270b34b4"
+    }
+  ],
+  "brand": {
+    "$oid": "69c7ef9cdfa156e099553619"
+  },
+  "ratingsAverage": 4.5,
+  "ratingsQuantity": 0,
+  "createdAt": {
+    "$date": "2026-03-29T12:51:50.139Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-29T12:51:50.139Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c9206651fda353874315d4"
+  },
+  "title": "Nike Air Max 270",
+  "slug": "nike-air-max-270",
+  "description": "Nike's first lifestyle Air Max brings you style, comfort and big attitude in a sleek design.",
+  "quantity": 100,
+  "sold": 60,
+  "price": 4500,
+  "priceAfterDiscount": 3800,
+  "colors": [
+    "White",
+    "Black/Red"
+  ],
+  "imageCover": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/aw4wggsk9npt9vwmkv0f/air-max-270-shoes-nnTr9N.png",
+  "images": [],
+  "category": {
+    "$oid": "69c6ad330e1e783aeb66bc4f"
+  },
+  "subcategories": [
+    {
+      "$oid": "69c78f138027bab0270b34c5"
+    }
+  ],
+  "brand": {
+    "$oid": "69c7f093dfa156e099553633"
+  },
+  "ratingsAverage": 4.7,
+  "ratingsQuantity": 200,
+  "createdAt": {
+    "$date": "2026-03-29T12:51:50.139Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-29T12:51:50.139Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c9206651fda353874315d1"
+  },
+  "title": "iPhone 15 Pro Max 256GB",
+  "slug": "iphone-15-pro-max-256gb",
+  "description": "The ultimate iPhone with A17 Pro chip, a titanium design, and the most powerful iPhone camera system ever.",
+  "quantity": 50,
+  "sold": 12,
+  "price": 65000,
+  "priceAfterDiscount": 62000,
+  "colors": [
+    "Black Titanium",
+    "Natural Titanium"
+  ],
+  "imageCover": "https://m.media-amazon.com/images/I/81Sig6biNGL._AC_SL1500_.jpg",
+  "images": [],
+  "category": {
+    "$oid": "69c6ac520e1e783aeb66bc49"
+  },
+  "subcategories": [
+    {
+      "$oid": "69c6bfd0800db77841a76d13"
+    }
+  ],
+  "brand": {
+    "$oid": "69c7ef55dfa156e09955360f"
+  },
+  "ratingsAverage": 4.9,
+  "ratingsQuantity": 150,
+  "createdAt": {
+    "$date": "2026-03-29T12:51:50.139Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-29T12:51:50.139Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c9206651fda353874315d6"
+  },
+  "title": "Beko No Frost Refrigerator 450L",
+  "slug": "beko-no-frost-refrigerator-450l",
+  "description": "Keep your food fresh longer with EverFresh+ technology and Active Fresh Blue Light.",
+  "quantity": 10,
+  "sold": 0,
+  "price": 28000,
+  "colors": [],
+  "imageCover": "https://m.media-amazon.com/images/I/51r-78G6fTL._AC_SL1000_.jpg",
+  "images": [],
+  "category": {
+    "$oid": "69c6ad280e1e783aeb66bc4d"
+  },
+  "subcategories": [
+    {
+      "$oid": "69c78eb58027bab0270b34ba"
+    }
+  ],
+  "brand": {
+    "$oid": "69c7f085dfa156e099553631"
+  },
+  "ratingsQuantity": 0,
+  "createdAt": {
+    "$date": "2026-03-29T12:51:50.139Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-29T12:51:50.139Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c9206651fda353874315d7"
+  },
+  "title": "Sony PlayStation 5 Console",
+  "slug": "sony-playstation-5-console",
+  "description": "Experience lightning-fast loading with an ultra-high speed SSD and deeper immersion.",
+  "quantity": 25,
+  "sold": 45,
+  "price": 31000,
+  "colors": [],
+  "imageCover": "https://m.media-amazon.com/images/I/51eO3LNDhLL._AC_SL1500_.jpg",
+  "images": [],
+  "category": {
+    "$oid": "69c6ad3c0e1e783aeb66bc51"
+  },
+  "subcategories": [
+    {
+      "$oid": "69c78f5d8027bab0270b34c9"
+    }
+  ],
+  "brand": {
+    "$oid": "69c7ef55dfa156e09955360f"
+  },
+  "ratingsAverage": 4.9,
+  "ratingsQuantity": 300,
+  "createdAt": {
+    "$date": "2026-03-29T12:51:50.139Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-29T12:51:50.139Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c9206651fda353874315d2"
+  },
+  "title": "Samsung Galaxy S24 Ultra",
+  "slug": "samsung-galaxy-s24-ultra",
+  "description": "Experience the new era of Galaxy AI with S24 Ultra. Titanium frame and a 200MP camera.",
+  "quantity": 40,
+  "sold": 25,
+  "price": 58000,
+  "priceAfterDiscount": 55000,
+  "colors": [
+    "Titanium Gray",
+    "Titanium Black"
+  ],
+  "imageCover": "https://m.media-amazon.com/images/I/71RZA9L77tL._AC_SL1500_.jpg",
+  "images": [],
+  "category": {
+    "$oid": "69c6ac520e1e783aeb66bc49"
+  },
+  "subcategories": [
+    {
+      "$oid": "69c6bfd0800db77841a76d13"
+    }
+  ],
+  "brand": {
+    "$oid": "69c7ef62dfa156e099553611"
+  },
+  "ratingsAverage": 4.8,
+  "ratingsQuantity": 85,
+  "createdAt": {
+    "$date": "2026-03-29T12:51:50.139Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-29T12:51:50.139Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c9206651fda353874315d5"
+  },
+  "title": "Adidas Essentials Hoodie",
+  "slug": "adidas-essentials-hoodie",
+  "description": "A classic hoodie made with soft fleece for everyday comfort and iconic 3-stripes style.",
+  "quantity": 80,
+  "sold": 0,
+  "price": 2200,
+  "colors": [],
+  "imageCover": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/71e35928f6c348f683e3af4a00f1a967_9366/Essentials_French_Terry_3-Stripes_Full-Zip_Hoodie_Grey_IC0434_21_model.jpg",
+  "images": [],
+  "category": {
+    "$oid": "69c6ad330e1e783aeb66bc4f"
+  },
+  "subcategories": [
+    {
+      "$oid": "69c78efa8027bab0270b34c1"
+    }
+  ],
+  "brand": {
+    "$oid": "69c7f09cdfa156e099553635"
+  },
+  "ratingsQuantity": 0,
+  "createdAt": {
+    "$date": "2026-03-29T12:51:50.139Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-29T12:51:50.139Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c9206651fda353874315d8"
+  },
+  "title": "Node.js Complete Guide Course",
+  "slug": "node-js-complete-guide-course",
+  "description": "Master Node JS, build REST APIs with Express, and learn MongoDB from scratch.",
+  "quantity": 500,
+  "sold": 120,
+  "price": 500,
+  "priceAfterDiscount": 199,
+  "colors": [],
+  "imageCover": "https://process.fs.teachablecdn.com/ADNOC1YZ8QC69yjtD9oH6z/cache=expiry:31536000/https://file-uploads.teachablecdn.com/839446700543415eb270d19e91029c78/674d9e797e8a4a589e8f4109403d6d03",
+  "images": [],
+  "category": {
+    "$oid": "69c7bf0d16373fac88251ee8"
+  },
+  "subcategories": [
+    {
+      "$oid": "69c7bf6416373fac88251eed"
+    }
+  ],
+  "brand": {
+    "$oid": "69c7f030dfa156e099553627"
+  },
+  "ratingsQuantity": 0,
+  "createdAt": {
+    "$date": "2026-03-29T12:51:50.139Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-29T12:51:50.139Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,336 @@
+[{
+  "_id": {
+    "$oid": "69c7ef55dfa156e09955360f"
+  },
+  "name": "Apple",
+  "slug": "apple",
+  "createdAt": {
+    "$date": "2026-03-28T15:10:13.147Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:10:13.147Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7ef62dfa156e099553611"
+  },
+  "name": "Samsung",
+  "slug": "samsung",
+  "createdAt": {
+    "$date": "2026-03-28T15:10:26.119Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:10:26.119Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7ef6cdfa156e099553613"
+  },
+  "name": "Xiaomi",
+  "slug": "xiaomi",
+  "createdAt": {
+    "$date": "2026-03-28T15:10:36.319Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:10:36.319Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7ef77dfa156e099553615"
+  },
+  "name": "Huawei",
+  "slug": "huawei",
+  "createdAt": {
+    "$date": "2026-03-28T15:10:47.119Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:10:47.119Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7ef80dfa156e099553617"
+  },
+  "name": "Realme",
+  "slug": "realme",
+  "createdAt": {
+    "$date": "2026-03-28T15:10:56.377Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:10:56.377Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7ef9cdfa156e099553619"
+  },
+  "name": "Dell",
+  "slug": "dell",
+  "createdAt": {
+    "$date": "2026-03-28T15:11:24.470Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:11:24.470Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7efdddfa156e09955361d"
+  },
+  "name": "Lenovo",
+  "slug": "lenovo",
+  "createdAt": {
+    "$date": "2026-03-28T15:12:29.467Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:12:29.467Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7efecdfa156e09955361f"
+  },
+  "name": "MacBook",
+  "slug": "macbook",
+  "createdAt": {
+    "$date": "2026-03-28T15:12:44.327Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:12:44.327Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7eff4dfa156e099553621"
+  },
+  "name": "Asus",
+  "slug": "asus",
+  "createdAt": {
+    "$date": "2026-03-28T15:12:52.277Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:12:52.277Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7f012dfa156e099553623"
+  },
+  "name": "iPad",
+  "slug": "ipad",
+  "createdAt": {
+    "$date": "2026-03-28T15:13:22.723Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:13:22.723Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7f027dfa156e099553625"
+  },
+  "name": "Tab",
+  "slug": "tab",
+  "createdAt": {
+    "$date": "2026-03-28T15:13:43.413Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:13:43.413Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7f030dfa156e099553627"
+  },
+  "name": "Microsoft (Surface)",
+  "slug": "microsoft-(surface)",
+  "createdAt": {
+    "$date": "2026-03-28T15:13:52.061Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:13:52.061Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7f046dfa156e099553629"
+  },
+  "name": "LGG",
+  "slug": "lgg",
+  "createdAt": {
+    "$date": "2026-03-28T15:14:14.511Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:14:14.511Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7f069dfa156e09955362d"
+  },
+  "name": "Sharp",
+  "slug": "sharp",
+  "createdAt": {
+    "$date": "2026-03-28T15:14:49.384Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:14:49.384Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7f079dfa156e09955362f"
+  },
+  "name": "Toshiba",
+  "slug": "toshiba",
+  "createdAt": {
+    "$date": "2026-03-28T15:15:05.662Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:15:05.662Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7f085dfa156e099553631"
+  },
+  "name": "Beko",
+  "slug": "beko",
+  "createdAt": {
+    "$date": "2026-03-28T15:15:17.938Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:15:17.938Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7f093dfa156e099553633"
+  },
+  "name": "Nike",
+  "slug": "nike",
+  "createdAt": {
+    "$date": "2026-03-28T15:15:31.293Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:15:31.293Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7f09cdfa156e099553635"
+  },
+  "name": "Adidas",
+  "slug": "adidas",
+  "createdAt": {
+    "$date": "2026-03-28T15:15:40.050Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:15:40.050Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7f0a4dfa156e099553637"
+  },
+  "name": "Puma",
+  "slug": "puma",
+  "createdAt": {
+    "$date": "2026-03-28T15:15:48.079Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:15:48.079Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7f0addfa156e099553639"
+  },
+  "name": "Zara",
+  "slug": "zara",
+  "createdAt": {
+    "$date": "2026-03-28T15:15:57.317Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:15:57.317Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7f0b5dfa156e09955363b"
+  },
+  "name": "H&M",
+  "slug": "handm",
+  "createdAt": {
+    "$date": "2026-03-28T15:16:05.821Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:16:05.821Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7f0c8dfa156e09955363d"
+  },
+  "name": "Reebok",
+  "slug": "reebok",
+  "createdAt": {
+    "$date": "2026-03-28T15:16:24.477Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:16:24.477Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7f0d1dfa156e09955363f"
+  },
+  "name": "Skechers",
+  "slug": "skechers",
+  "createdAt": {
+    "$date": "2026-03-28T15:16:33.927Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:16:33.927Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7f0dbdfa156e099553641"
+  },
+  "name": "Timberland",
+  "slug": "timberland",
+  "createdAt": {
+    "$date": "2026-03-28T15:16:43.215Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T15:16:43.215Z"
+  },
+  "__v": 0
+}]

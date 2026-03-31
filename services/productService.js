@@ -25,6 +25,7 @@ exports.getProducts = asyncHandler(async (req, res) => {
 
   // ثانياً: بنصلح الأقواس لو موجودة ونحولها لشكل Object
   // دي اللي هتحول 'ratingsAverage[gte]' لشكل يفهمه المونجو
+  // eslint-disable-next-line prefer-const
   let finalQuery = JSON.parse(queryStr);
 
   // تريك إضافية عشان نضمن إن الـ Nested Objects تفك صح

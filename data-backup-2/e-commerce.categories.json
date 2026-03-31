@@ -1,0 +1,84 @@
+[{
+  "_id": {
+    "$oid": "69c6ac520e1e783aeb66bc49"
+  },
+  "name": "Electronics",
+  "slug": "electronics",
+  "createdAt": {
+    "$date": "2026-03-27T16:12:02.732Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-27T16:12:02.732Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c6ad280e1e783aeb66bc4d"
+  },
+  "name": "Home Appliances",
+  "slug": "home-appliances",
+  "createdAt": {
+    "$date": "2026-03-27T16:15:36.984Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-27T16:15:36.984Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c6ad330e1e783aeb66bc4f"
+  },
+  "name": "Fashion",
+  "slug": "fashion",
+  "createdAt": {
+    "$date": "2026-03-27T16:15:47.275Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-27T16:15:47.275Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c6ad3c0e1e783aeb66bc51"
+  },
+  "name": "Gaming",
+  "slug": "gaming",
+  "createdAt": {
+    "$date": "2026-03-27T16:15:56.262Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-27T16:15:56.262Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c6ad470e1e783aeb66bc53"
+  },
+  "name": "Health & Beauty",
+  "slug": "health-and-beauty",
+  "createdAt": {
+    "$date": "2026-03-27T16:16:07.720Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-27T16:16:07.720Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7bf0d16373fac88251ee8"
+  },
+  "name": "Programing Languages",
+  "slug": "programing-languages",
+  "createdAt": {
+    "$date": "2026-03-28T11:44:13.296Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T11:44:13.296Z"
+  },
+  "__v": 0
+}]

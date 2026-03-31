@@ -1,0 +1,323 @@
+[{
+  "_id": {
+    "$oid": "69c6bfd0800db77841a76d13"
+  },
+  "name": "Mobile Phones",
+  "slug": "mobile-phones",
+  "category": {
+    "$oid": "69c6ac520e1e783aeb66bc49"
+  },
+  "createdAt": {
+    "$date": "2026-03-27T17:35:12.597Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-27T17:35:12.597Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c78e1e8027bab0270b34b4"
+  },
+  "name": "Laptops",
+  "slug": "laptops",
+  "category": {
+    "$oid": "69c6ac520e1e783aeb66bc49"
+  },
+  "createdAt": {
+    "$date": "2026-03-28T08:15:26.213Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T08:15:26.213Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c78e5e8027bab0270b34b6"
+  },
+  "name": "Tablets",
+  "slug": "tablets",
+  "category": {
+    "$oid": "69c6ac520e1e783aeb66bc49"
+  },
+  "createdAt": {
+    "$date": "2026-03-28T08:16:30.814Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T08:16:30.814Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c78eb58027bab0270b34ba"
+  },
+  "name": "Refrigerators",
+  "slug": "refrigerators",
+  "category": {
+    "$oid": "69c6ad280e1e783aeb66bc4d"
+  },
+  "createdAt": {
+    "$date": "2026-03-28T08:17:57.884Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T08:17:57.884Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c78ec48027bab0270b34bc"
+  },
+  "name": "Washing Machines",
+  "slug": "washing-machines",
+  "category": {
+    "$oid": "69c6ad280e1e783aeb66bc4d"
+  },
+  "createdAt": {
+    "$date": "2026-03-28T08:18:12.173Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T08:18:12.173Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c78ed08027bab0270b34be"
+  },
+  "name": "Microwaves",
+  "slug": "microwaves",
+  "category": {
+    "$oid": "69c6ad280e1e783aeb66bc4d"
+  },
+  "createdAt": {
+    "$date": "2026-03-28T08:18:24.060Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T08:18:24.060Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c78efa8027bab0270b34c1"
+  },
+  "name": "Men Clothing",
+  "slug": "men-clothing",
+  "category": {
+    "$oid": "69c6ad330e1e783aeb66bc4f"
+  },
+  "createdAt": {
+    "$date": "2026-03-28T08:19:06.569Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T09:01:42.042Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c78f0a8027bab0270b34c3"
+  },
+  "name": "Women's Clothing",
+  "slug": "women's-clothing",
+  "category": {
+    "$oid": "69c6ad330e1e783aeb66bc4f"
+  },
+  "createdAt": {
+    "$date": "2026-03-28T08:19:22.865Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T08:19:22.865Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c78f138027bab0270b34c5"
+  },
+  "name": "Shoes",
+  "slug": "shoes",
+  "category": {
+    "$oid": "69c6ad330e1e783aeb66bc4f"
+  },
+  "createdAt": {
+    "$date": "2026-03-28T08:19:31.524Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T08:19:31.524Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c78f5d8027bab0270b34c9"
+  },
+  "name": "PlayStation",
+  "slug": "playstation",
+  "category": {
+    "$oid": "69c6ad3c0e1e783aeb66bc51"
+  },
+  "createdAt": {
+    "$date": "2026-03-28T08:20:45.231Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T08:20:45.231Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c78f688027bab0270b34cb"
+  },
+  "name": "Xbox",
+  "slug": "xbox",
+  "category": {
+    "$oid": "69c6ad3c0e1e783aeb66bc51"
+  },
+  "createdAt": {
+    "$date": "2026-03-28T08:20:56.694Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T08:20:56.694Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c78f7a8027bab0270b34cd"
+  },
+  "name": "Gaming PC Accessories",
+  "slug": "gaming-pc-accessories",
+  "category": {
+    "$oid": "69c6ad3c0e1e783aeb66bc51"
+  },
+  "createdAt": {
+    "$date": "2026-03-28T08:21:14.036Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T08:21:14.036Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c78fa08027bab0270b34d0"
+  },
+  "name": "Skincare",
+  "slug": "skincare",
+  "category": {
+    "$oid": "69c6ad470e1e783aeb66bc53"
+  },
+  "createdAt": {
+    "$date": "2026-03-28T08:21:52.693Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T08:21:52.693Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c78fb68027bab0270b34d4"
+  },
+  "name": "Perfumes",
+  "slug": "perfumes",
+  "category": {
+    "$oid": "69c6ad470e1e783aeb66bc53"
+  },
+  "createdAt": {
+    "$date": "2026-03-28T08:22:14.593Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T08:22:14.593Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7bf6416373fac88251eed"
+  },
+  "name": "Node Js",
+  "slug": "node-js",
+  "category": {
+    "$oid": "69c7bf0d16373fac88251ee8"
+  },
+  "createdAt": {
+    "$date": "2026-03-28T11:45:40.772Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T11:45:40.772Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7bf8016373fac88251eef"
+  },
+  "name": "Python",
+  "slug": "python",
+  "category": {
+    "$oid": "69c7bf0d16373fac88251ee8"
+  },
+  "createdAt": {
+    "$date": "2026-03-28T11:46:08.686Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T11:46:08.686Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7bf8e16373fac88251ef1"
+  },
+  "name": "Go",
+  "slug": "go",
+  "category": {
+    "$oid": "69c7bf0d16373fac88251ee8"
+  },
+  "createdAt": {
+    "$date": "2026-03-28T11:46:22.428Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T11:46:22.428Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7c0a516373fac88251ef6"
+  },
+  "name": "Dart",
+  "slug": "dart",
+  "category": {
+    "$oid": "69c7bf0d16373fac88251ee8"
+  },
+  "createdAt": {
+    "$date": "2026-03-28T11:51:01.596Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T11:51:01.596Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c7c3319b074cc1dfcdcfad"
+  },
+  "name": "Rust",
+  "slug": "rust",
+  "category": {
+    "$oid": "69c7bf0d16373fac88251ee8"
+  },
+  "createdAt": {
+    "$date": "2026-03-28T12:01:53.522Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-28T12:01:53.522Z"
+  },
+  "__v": 0
+}]
