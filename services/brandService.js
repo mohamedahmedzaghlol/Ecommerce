@@ -7,6 +7,32 @@ const ApiError = require("../utils/apiError");
 //Import BrandModel
 const BrandModel = require("../models/brandModel");
 
+//Import uuid
+const {v4: uuidv4} = require("uuid");
+
+const path = require('path'); 
+//Import sharp 
+const sharp = require("sharp");
+
+// Import uploadImageMiddleware
+const {uploadSingleImage} = require("../middlewares/uploadImageMiddleware");
+// Upload Single Image
+exports.uploadBrandImage = uploadSingleImage("image");
+// Image processing
+exports.resizeImage = asyncHandler(async(req,res,next) => {
+  const filename = `brand-${uuidv4()}-${Date.now()}.jpeg`;
+  await sharp(req.file.buffer)
+    .resize(600,600)
+    .toFormat('jpeg')
+    .jpeg({quality: 90})
+    .toFile(`uploads/brands/${filename}`);
+
+    //Save image into our DB
+    req.body.image = filename;
+
+    next();
+});
+
 //exports.getBrands to use it in routes in brandRoute.js
 //express-async-handler & async & await
 // @desc Get list of brands
@@ -41,7 +67,7 @@ exports.getBrand = asyncHandler(async(req,res,next) => {
 // @access Private
 exports.createBrand = asyncHandler(async(req,res) => {
   const {name} = req.body;
-  const brand = await BrandModel.create({name, slug: slugify(name)});
+  const brand = await BrandModel.create(req.body);
   res.status(201).json({data: brand});
 });
 
@@ -55,7 +81,7 @@ exports.updateBrand = asyncHandler(async(req,res,next) => {
   const {name} = req.body;
   const brand = await BrandModel.findOneAndUpdate(
     {_id: id},
-    {name, slug: slugify(name)},
+    {name, slug: slugify(name),image: req.body.image},
     {new: true}
   );
   if (!brand) {

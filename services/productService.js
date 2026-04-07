@@ -83,6 +83,7 @@ exports.getProducts = asyncHandler(async (req, res) => {
   res.status(200).json({ result: products.length, page, data: products });
 });
 
+
 //exports.getProduct to use it in routes in productRoute.js
 //express-async-handler & async & await
 // @desc Get product By id

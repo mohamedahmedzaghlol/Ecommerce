@@ -28,6 +28,8 @@ const productRoute = require("./routes/productRoute");
 const ApiError = require("./utils/apiError");
 //Import globalError from middlewares folder from errorMiddleware.js
 const globalError = require("./middlewares/errorMiddleware");
+//Import path
+const path = require("path");
 
 //Connect with database
 dbConnection();
@@ -45,6 +47,9 @@ app.use(compression());
 
 // Middlewares
 app.use(express.json()); // to parse json to js object
+// Static for image
+app.use(express.static(path.join(__dirname, 'uploads')));
+
 app.use(hpp());
 //create route to ensure that the server is running on port 3000
 //Use morgan middleware to logg API Reequest in mode  development

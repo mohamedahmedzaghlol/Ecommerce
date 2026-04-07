@@ -1,5 +1,6 @@
 //Import express
 const express = require("express");
+
 //Import categoryValidator
 const {
   getCategoryValidator,
@@ -15,6 +16,8 @@ const {
   createCategory,
   updateCategory,
   deleteCategory,
+  uploadCategoryImage,
+  resizeImage
 } = require("../services/categoryService");
 
 //Import subCategoryRoute
@@ -25,7 +28,7 @@ const router = express.Router();
 
 //Nested Routes
 //http://localhost:3000/api/v1/categories/69c7bf0d16373fac88251ee8/subcategories
-router.use("/:categoryId/subcategories",subCategoryRoute);
+router.use("/:categoryId/subcategories", subCategoryRoute);
 //===========================================
 // router.get("/", getCategories);
 // router.post("/", createCategory);
@@ -34,12 +37,12 @@ router.use("/:categoryId/subcategories",subCategoryRoute);
 router
   .route("/")
   .get(getCategories)
-  .post(createCategoryValidator, createCategory);
+  .post(uploadCategoryImage, resizeImage,createCategoryValidator, createCategory);
 router
   .route("/:id")
   .get(getCategoryValidator, getCategory)
-  .put(updateCategoryValidator, updateCategory)
+  .put(uploadCategoryImage, resizeImage,updateCategoryValidator, updateCategory)
   .delete(deleteCategoryValidator, deleteCategory);
-  
+
 //Export router to use it in server.js
 module.exports = router;

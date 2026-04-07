@@ -6,6 +6,64 @@ const asyncHandler = require("express-async-handler");
 const ApiError = require("../utils/apiError");
 //Import CategoryModel
 const CategoryModel = require("../models/categoryModel");
+//Import multer
+// const multer = require("multer");
+//Import uuid
+const {v4: uuidv4} = require("uuid");
+
+const path = require('path'); 
+//Import sharp 
+const sharp = require("sharp");
+
+// Import uploadImageMiddleware
+const {uploadSingleImage} = require("../middlewares/uploadImageMiddleware");
+
+
+
+// 1- DiskStorage engine
+// const multerStorage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     const fullPath = path.join(__dirname, '../uploads/categories');
+//     cb(null, fullPath);
+//   },
+//   filename: function (req, file, cb) {
+//     const ext = file.mimetype.split('/')[1];
+//     const filename = `category-${uuidv4()}-${Date.now()}.${ext}`;
+//     cb(null, filename);
+//   }
+// });
+
+//2- Memory storage 
+// const multerStorage = multer.memoryStorage();
+
+// 2- Check if the file upload --> it is image or file
+// const multerFilter = function(req, file, cb) {
+//   if (file.mimetype.startsWith("image")) {
+//     cb(null, true);
+//   } else {
+//     cb(new ApiError("Only Images Allowed",404),false);
+//   }
+// };
+
+// destination of Images
+// const upload = multer({storage: multerStorage, fileFilter: multerFilter});
+
+// Upload Single Image
+exports.uploadCategoryImage = uploadSingleImage("image");
+// Image processing
+exports.resizeImage = asyncHandler(async(req,res,next) => {
+  const filename = `category-${uuidv4()}-${Date.now()}.jpeg`;
+  await sharp(req.file.buffer)
+    .resize(600,600)
+    .toFormat('jpeg')
+    .jpeg({quality: 90})
+    .toFile(`uploads/categories/${filename}`);
+
+    //Save image into our DB
+    req.body.image = filename;
+
+    next();
+});
 
 //exports.getCategories to use it in routes in categoryRoute.js
 //express-async-handler & async & await
@@ -61,7 +119,7 @@ exports.getCategory = asyncHandler(async(req,res,next) => {
 // @access Private
 exports.createCategory = asyncHandler(async(req,res) => {
   const {name} = req.body;
-  const category = await CategoryModel.create({name, slug: slugify(name)});
+  const category = await CategoryModel.create(req.body);
   res.status(201).json({data: category});
 });
 
@@ -75,7 +133,7 @@ exports.updateCategory = asyncHandler(async(req,res,next) => {
   const {name} = req.body;
   const category = await CategoryModel.findOneAndUpdate(
     {_id: id},
-    {name, slug: slugify(name)},
+    {name, slug: slugify(name),image: req.body.image},
     {new: true}
   );
   if (!category) {

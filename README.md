@@ -297,3 +297,23 @@ Developer Workflow (Postman Automation):
 | Compression | `Gzip Payload` | Faster Response Times |
 | HPP | `Parameter Protection` | Prevents Query Pollution Attacks |
 | Morgan | `Request Logging` | Real-time Development Monitoring |
+
+
+## 🖼️ Image Processing Architecture
+In this project, I implemented a professional image upload and processing pipeline using **Multer** and **Sharp**.
+
+### Key Features:
+- **Generic Middleware**: Created a reusable middleware to handle single image uploads for any entity (Categories, Brands, etc.).
+- **Memory Storage**: Used `multer.memoryStorage()` to keep images in RAM for faster processing and to avoid saving temporary unoptimized files.
+- **Image Optimization**: Integrated **Sharp** to:
+  - Resize images to a standard `600x600` pixels for UI consistency.
+  - Convert all formats to `JPEG` for better compression.
+  - Adjust quality to `90%` to balance between file size and clarity.
+- **Static File Serving**: Configured Express to serve the `uploads` folder as a static directory for easy access via URLs.
+
+### Workflow:
+1. **Request**: Client sends a `multipart/form-data` request with an image.
+2. **Multer Filter**: Validates that the uploaded file is strictly an image.
+3. **Sharp Processing**: Resizes and formats the image in memory.
+4. **Storage**: Saves the final optimized image to the disk.
+5. **Database**: Stores only the unique filename in MongoDB.
