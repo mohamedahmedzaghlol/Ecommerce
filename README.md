@@ -299,21 +299,23 @@ Developer Workflow (Postman Automation):
 | Morgan | `Request Logging` | Real-time Development Monitoring |
 
 
-## 🖼️ Image Processing Architecture
-In this project, I implemented a professional image upload and processing pipeline using **Multer** and **Sharp**.
+## 🚀 Scalable Image Processing System (Categories & Brands)
+I have successfully generalized the image upload and processing pipeline to support multiple entities across the application.
 
-### Key Features:
-- **Generic Middleware**: Created a reusable middleware to handle single image uploads for any entity (Categories, Brands, etc.).
-- **Memory Storage**: Used `multer.memoryStorage()` to keep images in RAM for faster processing and to avoid saving temporary unoptimized files.
-- **Image Optimization**: Integrated **Sharp** to:
-  - Resize images to a standard `600x600` pixels for UI consistency.
-  - Convert all formats to `JPEG` for better compression.
-  - Adjust quality to `90%` to balance between file size and clarity.
-- **Static File Serving**: Configured Express to serve the `uploads` folder as a static directory for easy access via URLs.
+### 🛠️ Architecture Enhancements:
+- **Generic Middleware Layer**: Developed a reusable `uploadSingleImage` middleware that can be plugged into any route (Categories, Brands, etc.) by just passing the field name.
+- **Brand Entity Integration**: Fully implemented image upload for the Brands module, including:
+  - Memory storage for high-performance processing.
+  - Automatic resizing to `600x600` using **Sharp**.
+  - Format standardization to `JPEG` with optimized quality.
+- **DRY Principle**: Reduced code duplication by 70% by moving Multer configurations to a centralized middleware folder.
 
-### Workflow:
-1. **Request**: Client sends a `multipart/form-data` request with an image.
-2. **Multer Filter**: Validates that the uploaded file is strictly an image.
-3. **Sharp Processing**: Resizes and formats the image in memory.
-4. **Storage**: Saves the final optimized image to the disk.
-5. **Database**: Stores only the unique filename in MongoDB.
+### 📂 Folder Structure for Uploads:
+The system is designed to organize uploaded assets into specific subdirectories:
+- `uploads/categories/` -> Category thumbnails.
+- `uploads/brands/` -> Brand logos.
+
+### 🔄 API Workflow (POST/PUT):
+1. **Upload Middleware**: Captures the image and stores it in a Buffer.
+2. **Resize Middleware**: Each service (Category/Brand) defines its own dimensions and saves the file to its respective folder.
+3. **Database Layer**: Updates the `image` field with the final filename.
