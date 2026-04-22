@@ -48,6 +48,12 @@ exports.getUserValidator = [
 
 exports.updateUserValidator = [
   check("id").isMongoId().withMessage("Invalid User id format"),
+  body("name")  
+    .optional()
+    .custom((val, { req }) => {
+      req.body.slug = slugify(val);
+      return true;
+    }),
   validatorMiddleware,
 ];
 
