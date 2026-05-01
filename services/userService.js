@@ -9,6 +9,8 @@ const UserModel = require("../models/userModel");
 
 //Import uuid
 const { v4: uuidv4 } = require("uuid");
+//Import bcryptjs
+const bcrypt = require("bcryptjs");
 
 const path = require("path");
 //Import sharp
@@ -80,13 +82,38 @@ exports.createUser = asyncHandler(async (req, res) => {
 // @access Private
 exports.updateUser = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
-  const { name } = req.body;
+  ////const { name } = req.body;
   const user = await UserModel.findOneAndUpdate(
     { _id: id },
-    req.body,
+    {
+      name: req.body.name,
+      slug: req.body.slug,
+      email: req.body.email,
+      phone: req.body.phone,
+      profileImg: req.body.profileImg,
+      role: req.body.role
+    },
     { new: true },
   );
   if (!user) {
+    return next(new ApiError(`No user for this id ${id}`, 404));
+  }
+  res.status(200).json({ data: user });
+});
+
+//exports.changeUserPassword to use it in routes in userRoute.js
+//express-async-handler & async & await
+// @desc changeUserPassword
+// @route UPDATE  http://localhost:3000/api/v1/users/changePassword/:id
+// @access Private
+exports.changeUserPassword = asyncHandler(async(req,res,next) => {
+  const { id } = req.params;
+  const user = await UserModel.findOneAndUpdate(
+    { _id: id},
+    { password: await bcrypt.hash(req.body.password, 12)},
+    { new: true}
+  );
+    if (!user) {
     return next(new ApiError(`No user for this id ${id}`, 404));
   }
   res.status(200).json({ data: user });

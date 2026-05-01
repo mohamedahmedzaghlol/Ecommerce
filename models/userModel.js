@@ -1,6 +1,8 @@
 // Import mongoose
 const mongoose = require("mongoose");
-// 1- Create userSchema
+//Import bcryptjs
+const bcrypt = require("bcryptjs");
+// 3- Create userSchema
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -24,6 +26,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "password required"],
       minlength: [6, "Too short password"],
+      select: false
     },
     role: {
       type: String,
@@ -38,8 +41,27 @@ const userSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
-// 2- Create model
+// الـ Global Solution لإخفاء الباسورد من أي Response
+// -----------------------------------------------------------
+const setTransform = (doc, ret) => {
+  delete ret.password; // بيضمن إن الباسورد يتمسح حتى لو اتعمله Create أو Save
+  return ret;
+};
+
+userSchema.set("toJSON", { transform: setTransform });
+userSchema.set("toObject", { transform: setTransform });
+
+// 5- Hashing user Password before Saving in Data Base
+userSchema.pre("save", async function () {
+  if (!this.isModified("password")) {
+    return;
+  }
+  // Hashing user password
+  this.password = await bcrypt.hash(this.password,12);
+});
+
+// 6- Create model
 const UserModel = mongoose.model('User', userSchema);
 
-//Export UserModel to use it in services in userService.js
+// 7- Export UserModel to use it in services in userService.js
 module.exports = UserModel;

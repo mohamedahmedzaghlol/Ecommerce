@@ -6,6 +6,7 @@ const {
   createUserValidator,
   updateUserValidator,
   deleteUserValidator,
+  changeUserPasswordValidator
 } = require("../utils/validators/userValidator");
 //Import services/brandService.js
 const {
@@ -15,11 +16,14 @@ const {
   updateUser,
   deleteUser,
   uploadUserImage,
-  resizeImage
+  resizeImage,
+  changeUserPassword
 } = require("../services/userService");
 
 //Import router
 const router = express.Router();
+
+router.put("/changePassword/:id",changeUserPasswordValidator ,changeUserPassword);
 
 router
   .route("/")

@@ -319,3 +319,36 @@ The system is designed to organize uploaded assets into specific subdirectories:
 1. **Upload Middleware**: Captures the image and stores it in a Buffer.
 2. **Resize Middleware**: Each service (Category/Brand) defines its own dimensions and saves the file to its respective folder.
 3. **Database Layer**: Updates the `image` field with the final filename.
+
+
+### 🚦 API Endpoints (Users)
+| Method | Endpoint | Description | Validation |
+| :--- | :--- | :--- | :--- |
+| POST | `/api/v1/users` | Create New User | Name, Unique Email, Password (min 6) |
+| GET | `/api/v1/users` | Get All Users | Pagination Support (Page, Limit) |
+| GET | `/api/v1/users/:id` | Get Specific User | Valid MongoID |
+| PUT | `/api/v1/users/:id` | Update User | Valid MongoID + Optional Fields |
+| PUT | `/api/v1/users/changePassword/:id` | Update Password | Current, New, and Confirm Password |
+| DELETE | `/api/v1/users/:id` | Delete User | Valid MongoID |
+
+
+👤 User Management & Security Module
+This module handles comprehensive User CRUD operations with a heavy focus on security and data integrity, built using Node.js, Express, and MongoDB.
+
+Key Features:
+
+Secure Authentication Logic: Implemented advanced password management including hashing using bcryptjs before saving to the database.
+
+Granular Validation: Built robust validation layers using express-validator to handle:
+
+Duplicate email detection.
+
+Password confirmation matching.
+
+Phone number format validation for specific regions (EG/SA).
+
+Protected Password Updates: A dedicated "Change Password" endpoint that requires verification of the currentPassword before allowing updates.
+
+Data Privacy (Global Protection): Configured Mongoose schemas and transforms to ensure sensitive data (like passwords) is automatically excluded from API responses (select: false and JSON transform).
+
+Image Handling: Integrated middleware for profile image uploads and processing.

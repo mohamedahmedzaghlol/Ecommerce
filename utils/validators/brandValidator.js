@@ -1,6 +1,7 @@
+const slugify = require('slugify');
 //Import express-validator
 // check ---> any thing such as param or body or query
-const { check } = require("express-validator");
+const { check, body } = require("express-validator");
 //Import validatorMiddleware.js
 const validatorMiddleware = require("../../middlewares/validatorMiddleware");
 
@@ -24,6 +25,12 @@ exports.createBrandValidator = [
 
 exports.updateBrandValidator = [
   check('id').isMongoId().withMessage('Invalid Brand id format'),
+  body('name')
+    .optional()
+    .custom((val, { req }) => {
+      req.body.slug = slugify(val);
+      return true;
+    }),
   validatorMiddleware,
 ];
 
