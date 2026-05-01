@@ -8,7 +8,7 @@ const {
   deleteUserValidator,
   changeUserPasswordValidator
 } = require("../utils/validators/userValidator");
-//Import services/brandService.js
+//Import services/userService.js
 const {
   getUsers,
   getUser,

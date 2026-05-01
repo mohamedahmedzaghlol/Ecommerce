@@ -352,3 +352,37 @@ Protected Password Updates: A dedicated "Change Password" endpoint that requires
 Data Privacy (Global Protection): Configured Mongoose schemas and transforms to ensure sensitive data (like passwords) is automatically excluded from API responses (select: false and JSON transform).
 
 Image Handling: Integrated middleware for profile image uploads and processing.
+
+### 🚦 API Endpoints (Authentication)
+| Method | Endpoint | Description | Validation |
+| :--- | :--- | :--- | :--- |
+| POST | `/api/v1/auth/signup` | Register a new user | Name, Email, Password, PasswordConfirm |
+
+🚀 Phase 6: Authentication & JWT Implementation
+In this milestone, I implemented the secure Signup System, marking the transition from simple data management to a secure, session-based architecture using JSON Web Tokens (JWT).
+
+🛠️ Key Technical Achievements:
+Stateless Authentication: Integrated jsonwebtoken (JWT) to issue secure, signed tokens upon successful registration. This enables stateless communication between the client and server.
+
+Identity Tokenization: Configured the JWT payload to include the userId, allowing the backend to identify users securely without repeated database lookups for credentials.
+
+Multi-Layered Auth Validation: Developed a dedicated authValidator to handle strict registration rules:
+
+Real-time Availability Check: Asynchronous validation to ensure emails are unique before attempting creation.
+
+Integrity Enforcement: Strict comparison logic between password and passwordConfirm to prevent entry errors.
+
+Slug Generation: Automated creation of user slugs for SEO-friendly profile routing.
+
+Security-First Configuration: Centralized sensitive Auth configurations (Secret Key, Expiration Time) within a secure environment file (config.env) to ensure production readiness.
+
+Postman Automation: Updated the testing environment to capture and verify JWT responses, ensuring the userId in the token matches the database record.
+
+🧪 Verification & Testing
+I have rigorously tested the Signup Flow to ensure:
+
+Passwords are encrypted before storage (verified via MongoDB Compass).
+
+Sensitive data (passwords) is excluded from the response payload.
+
+JWT tokens are correctly structured and verifiable (verified via JWT.io).

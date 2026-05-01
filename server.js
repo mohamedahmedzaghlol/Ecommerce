@@ -26,6 +26,8 @@ const brandRoute = require("./routes/brandRoute")
 const productRoute = require("./routes/productRoute");
 //Import usertRoute from routes
 const userRoute = require("./routes/userRoute");
+//Import authRoute from routes
+const authRoute = require("./routes/authRoute");
 //Import class ApiError
 const ApiError = require("./utils/apiError");
 //Import globalError from middlewares folder from errorMiddleware.js
@@ -70,6 +72,8 @@ app.use("/api/v1/brands", brandRoute);
 app.use("/api/v1/products", productRoute);
 // http://localhost:3000/api/v1/users
 app.use("/api/v1/users", userRoute);
+//http://localhost:3000/api/v1/auth/signup
+app.use("/api/v1/auth", authRoute);
 //Middleware to handle error that I cannot handle it (Such as URL Not found)
 //Example --> URL --> http://localhost:3000/api/v2/categories
 app.all(/.*/, (req, res, next) => {
