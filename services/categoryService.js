@@ -51,18 +51,22 @@ const {uploadSingleImage} = require("../middlewares/uploadImageMiddleware");
 // Upload Single Image
 exports.uploadCategoryImage = uploadSingleImage("image");
 // Image processing
-exports.resizeImage = asyncHandler(async(req,res,next) => {
+exports.resizeImage = asyncHandler(async (req, res, next) => {
+  // 1- لو مفيش ملف أصلاً، كمل للـ middleware اللي بعده ومتحاولش تعمل resize
+  if (!req.file) return next();
+
   const filename = `category-${uuidv4()}-${Date.now()}.jpeg`;
+  
   await sharp(req.file.buffer)
-    .resize(600,600)
+    .resize(600, 600)
     .toFormat('jpeg')
-    .jpeg({quality: 90})
+    .jpeg({ quality: 90 })
     .toFile(`uploads/categories/${filename}`);
 
-    //Save image into our DB
-    req.body.image = filename;
+  // حفظ اسم الصورة في الـ body عشان يتسيف في الداتابيز
+  req.body.image = filename;
 
-    next();
+  next();
 });
 
 //exports.getCategories to use it in routes in categoryRoute.js

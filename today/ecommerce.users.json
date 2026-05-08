@@ -1,0 +1,150 @@
+[{
+  "_id": {
+    "$oid": "69ea13f4d7e19aced8556630"
+  },
+  "name": "Mody",
+  "slug": "mody",
+  "email": "mody68@gmai.com",
+  "phone": "01090662367",
+  "password": "zaghlol123",
+  "role": "admin",
+  "active": true,
+  "createdAt": {
+    "$date": "2026-04-23T12:43:32.431Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-23T13:01:18.573Z"
+  },
+  "__v": 0,
+  "profileImg": "user-9aa9eddf-2494-4c93-afbb-23e8d5f74ce6-1776949278527.jpeg"
+},
+{
+  "_id": {
+    "$oid": "69ea15fbd7e19aced8556633"
+  },
+  "name": "Amr",
+  "slug": "amr",
+  "email": "amrahmedzaghlol68@gmail.com",
+  "phone": "01090662367",
+  "password": "amr123",
+  "role": "admin",
+  "active": true,
+  "createdAt": {
+    "$date": "2026-04-23T12:52:11.515Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-23T12:52:11.515Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69f1fd47130cc71b3e10e780"
+  },
+  "name": "Ahmed",
+  "slug": "ahmed",
+  "email": "ahmedzaghlol68@gmail.com",
+  "phone": "01090662367",
+  "password": "ahmed123",
+  "role": "admin",
+  "active": true,
+  "createdAt": {
+    "$date": "2026-04-29T12:44:55.144Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-29T12:44:55.144Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69f25b2d9952f289a7a84f35"
+  },
+  "name": "Ali",
+  "slug": "ali",
+  "email": "ali68@gmai.com",
+  "phone": "01003332610",
+  "password": "$2b$12$imlsqhIwFIPXsdEt/OC.0ul3mKO21kipUS7qTSCOFtZB3Df.2xQCa",
+  "role": "admin",
+  "active": true,
+  "createdAt": {
+    "$date": "2026-04-29T19:25:33.969Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-30T11:02:07.110Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69f33bc3dcbba67b7003e6ff"
+  },
+  "name": "Mohamed",
+  "slug": "mohamed",
+  "email": "mohamed68@gmail.com",
+  "phone": "01090662367",
+  "password": "$2b$12$BRItUVARp./jwOTF2LHDH.NnRl43u0FDx5jV8qZ/qKDzsgzWXrXxC",
+  "role": "admin",
+  "active": true,
+  "createdAt": {
+    "$date": "2026-04-30T11:23:47.096Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-30T11:29:19.589Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69f474b82276f9dd9a3a6fff"
+  },
+  "name": "Zaghlol",
+  "email": "mohamedahmedzaghlol68@gmail.com",
+  "password": "$2b$12$XA3hnFPUWx8y9KUN1H7XUOaNQnr043P6CJnvGMUJzKcfmRPMS7lhq",
+  "role": "user",
+  "active": true,
+  "createdAt": {
+    "$date": "2026-05-01T09:39:04.509Z"
+  },
+  "updatedAt": {
+    "$date": "2026-05-01T09:39:04.509Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69fc2fe4abd8f730de49092f"
+  },
+  "name": "Abdo",
+  "email": "abdo68@gmail.com",
+  "password": "$2b$12$nDenso9i9ozNQKRgHaIhRu6fLZbXoovQc0PMQRwisBwMSRQUmFLue",
+  "role": "user",
+  "active": true,
+  "createdAt": {
+    "$date": "2026-05-07T06:23:32.915Z"
+  },
+  "updatedAt": {
+    "$date": "2026-05-07T06:23:32.915Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69fcb92be6a91b48b89102a9"
+  },
+  "name": "Sondos",
+  "email": "sondos68@gmail.com",
+  "password": "$2b$12$OXcvVLyTA5FfUt.M6Rs0JeusMxsFvupME395tQo5J5hFFrclQetxi",
+  "role": "user",
+  "active": true,
+  "createdAt": {
+    "$date": "2026-05-07T16:09:15.450Z"
+  },
+  "updatedAt": {
+    "$date": "2026-05-07T17:26:29.139Z"
+  },
+  "__v": 0,
+  "passwordChangedAt": {
+    "$date": "2026-05-07T17:26:29.139Z"
+  }
+}]

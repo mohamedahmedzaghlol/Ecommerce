@@ -1,9 +1,7 @@
 const  slugify  = require("slugify");
 //Import express-validator
 // check ---> any thing such as param or body or query
-const { check, body } = require("express-validator");
-//Import bcryptjs
-const bcrypt = require("bcryptjs");
+const { check } = require("express-validator");
 //Import validatorMiddleware.js
 const validatorMiddleware = require("../../middlewares/validatorMiddleware");
 //Import UserModel
@@ -55,4 +53,19 @@ exports.signupValidator = [
     .notEmpty()
     .withMessage("Password Confirmation required"),
   validatorMiddleware,
+];
+
+exports.loginValidator = [
+  check("email")
+    .notEmpty()
+    .withMessage("Email required")
+    .isEmail()
+    .withMessage("Invalid Email address"),
+
+  check("password")
+    .notEmpty()
+    .withMessage("Password required")
+    .isLength({min: 6})
+    .withMessage("Password must be at least 6 characters"),
+  validatorMiddleware
 ];
