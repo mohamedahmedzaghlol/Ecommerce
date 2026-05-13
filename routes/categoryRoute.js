@@ -17,7 +17,7 @@ const {
   updateCategory,
   deleteCategory,
   uploadCategoryImage,
-  resizeImage
+  resizeImage,
 } = require("../services/categoryService");
 
 //Import subCategoryRoute
@@ -40,12 +40,31 @@ router.use("/:categoryId/subcategories", subCategoryRoute);
 router
   .route("/")
   .get(getCategories)
-  .post(authService.protect,uploadCategoryImage, resizeImage,createCategoryValidator, createCategory);
+  .post(
+    authService.protect,
+    authService.allowTo("manager", "admin"),
+    uploadCategoryImage,
+    resizeImage,
+    createCategoryValidator,
+    createCategory,
+  );
 router
   .route("/:id")
   .get(getCategoryValidator, getCategory)
-  .put(uploadCategoryImage, resizeImage,updateCategoryValidator, updateCategory)
-  .delete(deleteCategoryValidator, deleteCategory);
+  .put(
+    authService.protect,
+    authService.allowTo("manager", "admin"),
+    uploadCategoryImage,
+    resizeImage,
+    updateCategoryValidator,
+    updateCategory,
+  )
+  .delete(
+    authService.protect,
+    authService.allowTo("admin"),
+    deleteCategoryValidator,
+    deleteCategory,
+  );
 
 //Export router to use it in server.js
 module.exports = router;

@@ -6,7 +6,7 @@ const {
   createUserValidator,
   updateUserValidator,
   deleteUserValidator,
-  changeUserPasswordValidator
+  changeUserPasswordValidator,
 } = require("../utils/validators/userValidator");
 //Import services/userService.js
 const {
@@ -17,23 +17,55 @@ const {
   deleteUser,
   uploadUserImage,
   resizeImage,
-  changeUserPassword
+  changeUserPassword,
 } = require("../services/userService");
+
+// Import authService
+const authService = require("../services/authService");
 
 //Import router
 const router = express.Router();
 
-router.put("/changePassword/:id",changeUserPasswordValidator ,changeUserPassword);
+router.put(
+  "/changePassword/:id",
+  authService.protect,
+  changeUserPasswordValidator,
+  changeUserPassword,
+);
 
 router
   .route("/")
-  .get(getUsers)
-  .post(uploadUserImage,resizeImage, createUserValidator,createUser);
+  .get(authService.protect, authService.allowTo("manager", "admin"), getUsers)
+  .post(
+    authService.protect,
+    authService.allowTo("admin"),
+    uploadUserImage,
+    resizeImage,
+    createUserValidator,
+    createUser,
+  );
 router
   .route("/:id")
-  .get(getUserValidator,getUser)
-  .put(uploadUserImage,resizeImage, updateUserValidator,updateUser)
-  .delete(deleteUserValidator,deleteUser);
+  .get(
+    authService.protect,
+    authService.allowTo("admin"),
+    getUserValidator,
+    getUser,
+  )
+  .put(
+    authService.protect,
+    authService.allowTo("admin"),
+    uploadUserImage,
+    resizeImage,
+    updateUserValidator,
+    updateUser,
+  )
+  .delete(
+    authService.protect,
+    authService.allowTo("admin"),
+    deleteUserValidator,
+    deleteUser,
+  );
 
 //Export router to use it in server.js
 module.exports = router;

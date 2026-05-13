@@ -15,8 +15,11 @@ const {
   updateBrand,
   deleteBrand,
   uploadBrandImage,
-  resizeImage
+  resizeImage,
 } = require("../services/brandService");
+
+// Import authService
+const authService = require("../services/authService");
 
 //Import router
 const router = express.Router();
@@ -24,12 +27,31 @@ const router = express.Router();
 router
   .route("/")
   .get(getBrands)
-  .post(uploadBrandImage,resizeImage,createBrandValidator, createBrand);
+  .post(
+    authService.protect,
+    authService.allowTo("manager", "admin"),
+    uploadBrandImage,
+    resizeImage,
+    createBrandValidator,
+    createBrand,
+  );
 router
   .route("/:id")
   .get(getBrandValidator, getBrand)
-  .put(uploadBrandImage,resizeImage,updateBrandValidator, updateBrand)
-  .delete(deleteBrandValidator, deleteBrand);
+  .put(
+    authService.protect,
+    authService.allowTo("manager", "admin"),
+    uploadBrandImage,
+    resizeImage,
+    updateBrandValidator,
+    updateBrand,
+  )
+  .delete(
+    authService.protect,
+    authService.allowTo("admin"),
+    deleteBrandValidator,
+    deleteBrand,
+  );
 
 //Export router to use it in server.js
 module.exports = router;

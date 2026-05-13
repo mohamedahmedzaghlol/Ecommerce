@@ -17,16 +17,34 @@ const {
   deleteProduct,
 } = require("../services/productService");
 
+// Import authService
+const authService = require("../services/authService");
+
 //Import router
 const router = express.Router();
 router
   .route("/")
   .get(getProducts)
-  .post(createProductValidator, createProduct);
+  .post(
+    authService.protect,
+    authService.allowTo("manager", "admin"),
+    createProductValidator,
+    createProduct,
+  );
 router
   .route("/:id")
   .get(getProductValidator, getProduct)
-  .put(updateProductValidator, updateProduct)
-  .delete(deleteProductValidator, deleteProduct);
+  .put(
+    authService.protect,
+    authService.allowTo("manager", "admin"),
+    updateProductValidator,
+    updateProduct,
+  )
+  .delete(
+    authService.protect,
+    authService.allowTo("admin"),
+    deleteProductValidator,
+    deleteProduct,
+  );
 //Export router to use it in server.js
 module.exports = router;
