@@ -4,6 +4,8 @@ const slugify = require("slugify");
 const asyncHandler = require("express-async-handler");
 //Import class ApiError
 const ApiError = require("../utils/apiError");
+// Import generateToken
+const generateToken = require("../utils/generateToken");
 //Import userModel
 const UserModel = require("../models/userModel");
 
@@ -133,4 +135,67 @@ exports.deleteUser = asyncHandler(async (req, res, next) => {
     return next(new ApiError(`No user for this id ${id}`, 404));
   }
   res.status(204).send();
+});
+
+//exports.getLoggedUserData to use it in routes in userRoute.js
+//express-async-handler & async & await
+// @desc Get User By id
+// @route GET  http://localhost:3000/api/v1/users/getMe
+// @access Private/protect
+exports.getLoggedUserData = asyncHandler(async(req,res,next) => {
+  req.params.id = req.user._id;
+  next();
+});
+
+//exports.updateLoggedUserPassword to use it in routes in userRoute.js
+//express-async-handler & async & await
+// @desc Update Logged User Password
+// @route PUT  http://localhost:3000/api/v1/users/changeMyPassword
+// @access Private/protect
+exports.updateLoggedUserPassword = asyncHandler(async(req,res,next) => {
+  // 1- Update user password based user payload (req.user._id)
+    const user = await UserModel.findOneAndUpdate(
+    req.user._id,
+    { 
+      password: await bcrypt.hash(req.body.password, 12),
+      passwordChangedAt: Date.now()
+    },
+    { new: true}
+  );
+
+  // 2- Generate Token
+  const token = generateToken(user._id);
+  res.status(200).json({data: user, token});
+});
+
+//exports.updateLoggedUserData to use it in routes in userRoute.js
+//express-async-handler & async & await
+// @desc Update Logged User Data
+// @route PUT  http://localhost:3000/api/v1/users/updateMe
+// @access Private/protect
+exports.updateLoggedUserData = asyncHandler(async(req,res,next) => {
+  // 1- Update user data based user payload (req.user._id)
+  const updateUser = await UserModel.findOneAndUpdate(
+    req.user._id,
+    {
+      name: req.body.name,
+      email: req.body.email,
+      phone: req.body.phone
+    },
+    {new: true}
+  );
+  res.status(200).json({data: updateUser});
+});
+
+//exports.deleteLoggedUserData to use it in routes in userRoute.js
+//express-async-handler & async & await
+// @desc Deactive logged user
+// @route DELETE  http://localhost:3000/api/v1/users/deleteMe
+// @access Private/protect
+exports.deleteLoggedUserData = asyncHandler(async(req,res,next) => {
+  await UserModel.findOneAndUpdate(
+    req.user._id,
+    {active: false}
+  );
+  res.status(204).json({status: "Success"});
 });
